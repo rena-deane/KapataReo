@@ -17,7 +17,7 @@ class App extends Component {
       <View style={styles.container}>
         <ComponentBar title='katoa' />
         <ListView />
-        <ActionButton title='+ tapiri' />
+        <ActionButton />
       </View>
     );
   }
