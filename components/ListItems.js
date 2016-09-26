@@ -7,17 +7,16 @@ import {
 
 import styles from './styles'
 
-class KupuHou extends Component {
+class ListItems extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
+        <Text>
+          List eact item here
         </Text>
       </View>
     );
   }
 }
 
-
-AppRegistry.registerComponent('KupuHou', () => KupuHou);
+export default ListItems
