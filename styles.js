@@ -51,7 +51,7 @@ var styles = StyleSheet.create({
     backgroundColor: constants.actionColor,
     justifyContent: 'center',
     alignItems: 'center',
-    height: 50
+    height: 70
   },
   componenttitle: {
     color: constants.colorWhite,
@@ -75,6 +75,16 @@ var styles = StyleSheet.create({
     alignItems: 'center',
     height: 50
   },
+  newinput: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1
+  },
+  heading: {
+    color: constants.actionColor,
+    fontFamily: constants.bodyFontFamily,
+    fontSize: 16,
+  }
 })
 
 module.exports = styles
