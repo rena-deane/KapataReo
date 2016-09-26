@@ -7,16 +7,16 @@ import {
 
 import styles from '../styles'
 
-class ListItem extends Component {
+class ComponentBar extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>
-          List eact item here
+      <View style={styles.componentbar}>
+        <Text style={styles.componenttitle}>
+          {this.props.title}
         </Text>
       </View>
     );
   }
 }
 
-export default ListItem
+export default ComponentBar

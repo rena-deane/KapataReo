@@ -2,8 +2,11 @@ import React from 'react-native'
 import { StyleSheet } from 'react-native'
 
 const constants = {
-  actionColor: '#24CE84'
-};
+  actionColor: '#6AC8AD',
+  bodyFontFamily: 'Futura',
+  colorWhite: '#fff',
+  colorSand: '#F9FAF4'
+}
 
 var styles = StyleSheet.create({
   container: {
@@ -14,7 +17,7 @@ var styles = StyleSheet.create({
     flex: 1,
   },
   li: {
-    backgroundColor: '#fff',
+    backgroundColor: constants.colorWhite,
     borderBottomColor: '#eee',
     borderColor: 'transparent',
     borderWidth: 1,
@@ -31,7 +34,7 @@ var styles = StyleSheet.create({
   },
   navbar: {
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: constants.colorWhite,
     borderBottomColor: '#eee',
     borderColor: 'transparent',
     borderWidth: 1,
@@ -44,25 +47,33 @@ var styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "500"
   },
-  statusbar: {
-    backgroundColor: '#fff',
-    height: 22,
+  componentbar: {
+    backgroundColor: constants.actionColor,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 50
+  },
+  componenttitle: {
+    color: constants.colorWhite,
+    fontFamily: constants.bodyFontFamily,
+    fontSize: 28
   },
   center: {
     textAlign: 'center',
   },
   actionText: {
-    color: '#fff',
+    color: constants.actionColor,
+    fontFamily: constants.bodyFontFamily,
     fontSize: 16,
     textAlign: 'center',
   },
   action: {
-    backgroundColor: constants.actionColor,
+    backgroundColor: constants.colorSand,
     borderColor: 'transparent',
     borderWidth: 1,
-    paddingLeft: 16,
-    paddingTop: 14,
-    paddingBottom: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 50
   },
 })
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
+  StatusBar,
   View
 } from 'react-native';
 
@@ -12,6 +13,7 @@ class KupuHou extends Component {
   render() {
     return (
       <View style={styles.container}>
+      <StatusBar hidden={true} />
         <App />
       </View>
     );

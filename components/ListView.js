@@ -7,16 +7,16 @@ import {
 
 import styles from '../styles'
 
-class StatusBar extends Component {
+class ListView extends Component {
   render() {
     return (
-      <View style={styles.statusbar}>
+      <View style={styles.listview}>
         <Text>
-          StatusBar here
+          List container items here
         </Text>
       </View>
     );
   }
 }
 
-export default StatusBar
+export default ListView
