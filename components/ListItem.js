@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
+  Text,
   View
 } from 'react-native';
 
-import App from './components/App'
+import styles from '../styles'
 
-import styles from './styles'
-
-class KupuHou extends Component {
+class ListItem extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <App />
+        <Text>
+          List eact item here
+        </Text>
       </View>
     );
   }
 }
 
-
-AppRegistry.registerComponent('KupuHou', () => KupuHou);
+export default ListItem
