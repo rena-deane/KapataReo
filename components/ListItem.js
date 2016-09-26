@@ -5,9 +5,9 @@ import {
   View
 } from 'react-native';
 
-import styles from './styles'
+import styles from '../styles'
 
-class ListItems extends Component {
+class ListItem extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -19,4 +19,4 @@ class ListItems extends Component {
   }
 }
 
-export default ListItems
+export default ListItem

@@ -5,18 +5,18 @@ import {
   View
 } from 'react-native';
 
-import styles from './styles'
+import styles from '../styles'
 
-class AddItem extends Component {
+class StatusBar extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.statusbar}>
         <Text>
-          List eact item here
+          StatusBar here
         </Text>
       </View>
     );
   }
 }
 
-export default AddItem
+export default StatusBar
