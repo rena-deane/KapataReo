@@ -44,9 +44,9 @@ var styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "500"
   },
-  statusbar: {
+  componentbar: {
     backgroundColor: '#fff',
-    height: 22,
+    height: 40,
   },
   center: {
     textAlign: 'center',

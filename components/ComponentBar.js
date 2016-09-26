@@ -7,16 +7,16 @@ import {
 
 import styles from '../styles'
 
-class StatusBar extends Component {
+class ComponentBar extends Component {
   render() {
     return (
       <View style={styles.statusbar}>
         <Text>
-          StatusBar here
+          {this.props.title}
         </Text>
       </View>
     );
   }
 }
 
-export default StatusBar
+export default ComponentBar
