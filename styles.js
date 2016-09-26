@@ -2,7 +2,7 @@ import React from 'react-native'
 import { StyleSheet } from 'react-native'
 
 const constants = {
-  actionColor: '#24CE84'
+  actionColor: '#6AC8AD'
 };
 
 var styles = StyleSheet.create({
@@ -45,19 +45,19 @@ var styles = StyleSheet.create({
     fontWeight: "500"
   },
   componentbar: {
-    backgroundColor: '#fff',
-    height: 40,
+    backgroundColor: constants.actionColor,
+    height: 40
   },
   center: {
     textAlign: 'center',
   },
   actionText: {
-    color: '#fff',
+    color: constants.actionColor,
     fontSize: 16,
     textAlign: 'center',
   },
   action: {
-    backgroundColor: constants.actionColor,
+    backgroundColor: '#F9FAF4',
     borderColor: 'transparent',
     borderWidth: 1,
     paddingLeft: 16,

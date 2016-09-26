@@ -15,7 +15,8 @@ class App extends Component {
   render() {
     return (
       <View style={styles.app}>
-        <ComponentBar style={styles.componentbar} title="Katoa" / >
+        <ComponentBar title='KATOA' />
+        <ActionButton title='TAPIRI' />
       </View>
     );
   }

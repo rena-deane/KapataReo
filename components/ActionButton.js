@@ -11,7 +11,7 @@ import styles from '../styles'
 class AddItem extends Component {
   render() {
     return (
-      <View style={styles.actionbutton}>
+      <View style={styles.action}>
         <TouchableHighlight
           onPress={this.props.onPress}>
           <Text style={styles.actionText}>{this.props.title}</Text>
