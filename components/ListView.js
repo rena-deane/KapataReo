@@ -7,16 +7,16 @@ import {
 
 import styles from '../styles'
 
-class ListItem extends Component {
+class ListView extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.listview}>
         <Text>
-          List eact item here
+          List container items here
         </Text>
       </View>
     );
   }
 }
 
-export default ListItem
+export default ListView

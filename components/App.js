@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 
 import ActionButton from './ActionButton'
-import ListItem from './ListItem'
+import ListView from './ListView'
 import ComponentBar from './ComponentBar'
 
 import styles from '../styles'
@@ -14,9 +14,10 @@ import styles from '../styles'
 class App extends Component {
   render() {
     return (
-      <View style={styles.app}>
-        <ComponentBar title='KATOA' />
-        <ActionButton title='TAPIRI' />
+      <View style={styles.container}>
+        <ComponentBar title='katoa' />
+        <ListView />
+        <ActionButton title='+ tapiri' />
       </View>
     );
   }

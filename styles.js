@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native'
 
 const constants = {
   actionColor: '#6AC8AD',
+  bodyFontFamily: 'Futura',
   colorWhite: '#fff',
   colorSand: '#F9FAF4'
 }
@@ -53,13 +54,16 @@ var styles = StyleSheet.create({
     height: 50
   },
   componenttitle: {
-    color: constants.colorWhite
+    color: constants.colorWhite,
+    fontFamily: constants.bodyFontFamily,
+    fontSize: 28
   },
   center: {
     textAlign: 'center',
   },
   actionText: {
     color: constants.actionColor,
+    fontFamily: constants.bodyFontFamily,
     fontSize: 16,
     textAlign: 'center',
   },
