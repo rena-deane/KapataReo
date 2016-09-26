@@ -2,8 +2,10 @@ import React from 'react-native'
 import { StyleSheet } from 'react-native'
 
 const constants = {
-  actionColor: '#6AC8AD'
-};
+  actionColor: '#6AC8AD',
+  colorWhite: '#fff',
+  colorSand: '#F9FAF4'
+}
 
 var styles = StyleSheet.create({
   container: {
@@ -14,7 +16,7 @@ var styles = StyleSheet.create({
     flex: 1,
   },
   li: {
-    backgroundColor: '#fff',
+    backgroundColor: constants.colorWhite,
     borderBottomColor: '#eee',
     borderColor: 'transparent',
     borderWidth: 1,
@@ -31,7 +33,7 @@ var styles = StyleSheet.create({
   },
   navbar: {
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: constants.colorWhite,
     borderBottomColor: '#eee',
     borderColor: 'transparent',
     borderWidth: 1,
@@ -46,7 +48,12 @@ var styles = StyleSheet.create({
   },
   componentbar: {
     backgroundColor: constants.actionColor,
-    height: 40
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 50
+  },
+  componenttitle: {
+    color: constants.colorWhite
   },
   center: {
     textAlign: 'center',
@@ -57,12 +64,12 @@ var styles = StyleSheet.create({
     textAlign: 'center',
   },
   action: {
-    backgroundColor: '#F9FAF4',
+    backgroundColor: constants.colorSand,
     borderColor: 'transparent',
     borderWidth: 1,
-    paddingLeft: 16,
-    paddingTop: 14,
-    paddingBottom: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 50
   },
 })
 

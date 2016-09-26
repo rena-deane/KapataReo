@@ -10,8 +10,8 @@ import styles from '../styles'
 class ComponentBar extends Component {
   render() {
     return (
-      <View>
-        <Text style={styles.componentbar}>
+      <View style={styles.componentbar}>
+        <Text style={styles.componenttitle}>
           {this.props.title}
         </Text>
       </View>
