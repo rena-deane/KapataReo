@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 
 import ActionButton from './ActionButton'
+import AddWord from './AddWord'
 import ListView from './ListView'
 import ComponentBar from './ComponentBar'
 
@@ -17,6 +18,7 @@ class App extends Component {
       <View style={styles.container}>
         <ComponentBar title='katoa' />
         <ListView />
+        <AddWord />
         <ActionButton />
       </View>
     );

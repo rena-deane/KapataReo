@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import {
+  DatePickerIOS,
+  PickerIOS,
   StyleSheet,
   Text,
   TextInput,
-
-  View,
-  TouchableHighlight
+  TouchableHighlight,
+  View
 } from 'react-native'
 
 import styles from '../styles'
 
-const TYPE = [
+const PickerItemIOS = PickerIOS.Item
+
+const TYPES = [
   'location',
   'song' ,
   'word'
@@ -39,12 +42,14 @@ class AddWord extends Component {
           placeholder='Maori word'
         />
 
+        <Text style={styles.heading}>KUPU PAKEHA</Text>
         <TextInput
           style={styles.newinput}
           onChangeText={(text) => this.setState({englishword: text})}
           placeholder='English word'
         />
 
+        <Text style={styles.heading}>WHAKAMARAMA</Text>
         <TextInput
           style={styles.newinput}
           multiline = {true}
@@ -53,21 +58,16 @@ class AddWord extends Component {
           placeholder='Add sentences using the word or description'
         />
 
-        <DatePickerIOS
-          date={this.state.date}
-          mode="datetime"
-          timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
-          onDateChange={(date) => {this.setState({date: date})}
-        />
-
+        <Text style={styles.heading}>MOMO</Text>
         <PickerIOS
+          itemStyle={{fontSize: 24, textAlign: 'left'}}
           selectedValue={this.state.type}
           onValueChange={(newtype) => this.setState({type: newtype})}>
-          {Object.keys(TYPE).map((carMake) => (
+          {TYPES.map((type, index) => (
             <PickerItemIOS
-              key={carMake}
-              value={carMake}
-              label={TYPE}
+              key={index}
+              value={type}
+              label={type}
             />
           ))}
         </PickerIOS>
