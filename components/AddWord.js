@@ -18,14 +18,12 @@ const PickerItemIOS = PickerIOS.Item
 const TYPES = [
   'location',
   'phrase',
+  'name',
   'song',
   'word'
 ]
 
 const WORDS_KEY = '@KupuHouStorage:key'
-const INITIAL_STATE= [
-
-]
 
 class AddWord extends Component {
   constructor(props){
@@ -34,20 +32,33 @@ class AddWord extends Component {
       maoriword: '',
       englishword: '',
       description: '',
-      date: '',
+      datetime: '',
       type: 'song',
       locationtype: '',
       location: ''
     }
   }
 
+  componentDidMount() {
+    AsyncStorage.getAllKeys()
+    .then((data) => {
+      console.log('add word form getAllKeys ->', data)
+    })
+    .catch((err) => {
+      throw err
+    })
+  }
+
   submit = () => {
+    const key = this.state.maoriword
+    const value = JSON.stringify(this.state)
+    console.log(value)
+    AsyncStorage.setItem(key, value);
     this.props.navigator.push({
-      title: 'added',
+      title: this.state.maoriword,
       component: ListItem,
       passprops: {}
     })
-    console.log(this.state)
   }
 
   render() {

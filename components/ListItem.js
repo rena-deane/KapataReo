@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  AppRegistry,
+  AsyncStorage,
   Text,
   View
 } from 'react-native';
@@ -11,6 +11,17 @@ import ListView from './ListView'
 // add ScrollView for all entries
 
 class ListItem extends Component {
+  constructor(props) {
+    super(props)
+  }
+
+  componentDidMount() {
+    AsyncStorage.getAllKeys()
+    .then(data => {
+      console.log('existing date ->', data)
+    })
+  }
+
   render() {
     return (
       <View style={styles.listitem}>
