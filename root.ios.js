@@ -13,13 +13,13 @@ import styles from './styles'
 export default class RootNav extends Component {
   render() {
     return (
-      <NavigatorIOS
-        style={styles.container}
-        initialRoute={{
-          component: App,
-          title: 'katoa',
-        }}
-      />
-    );
+        <NavigatorIOS
+          style={styles.navcontainer}
+          initialRoute={{
+            component: App,
+            title: 'katoa',
+          }}
+        />
+    )
   }
 }
