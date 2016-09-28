@@ -14,7 +14,7 @@ class AddItem extends Component {
       <View style={styles.action}>
         <TouchableHighlight
           onPress={this.props.onPress}>
-          <Text style={styles.actionText}>{this.props.title}</Text>
+          <Text style={styles.actionText}>+ tapiri</Text>
         </TouchableHighlight>
       </View>
     );
