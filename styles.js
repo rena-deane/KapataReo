@@ -5,13 +5,16 @@ const constants = {
   actionColor: '#6AC8AD',
   bodyFontFamily: 'Futura',
   colorWhite: '#fff',
-  colorSand: '#F9FAF4'
+  colorSand: '#F9FAF4',
+  colorLightGrey: '#f2f2f2'
 }
 
 var styles = StyleSheet.create({
   container: {
-    backgroundColor: '#f2f2f2',
+    backgroundColor: constants.colorWhite,
     flex: 1,
+  },
+  addnew: {
   },
   listview: {
     flex: 1,
@@ -64,7 +67,13 @@ var styles = StyleSheet.create({
   actionText: {
     color: constants.actionColor,
     fontFamily: constants.bodyFontFamily,
-    fontSize: 16,
+    fontSize: 20,
+    textAlign: 'center',
+  },
+  submitText: {
+    color: constants.colorWhite,
+    fontFamily: constants.bodyFontFamily,
+    fontSize: 20,
     textAlign: 'center',
   },
   action: {
@@ -76,14 +85,31 @@ var styles = StyleSheet.create({
     height: 50
   },
   newinput: {
+    borderColor: constants.colorLightGrey,
+    borderWidth: 1,
+    fontSize: 20,
     height: 40,
-    borderColor: 'gray',
-    borderWidth: 1
+    marginBottom: 20
+  },
+  picker: {
+    backgroundColor: constants.colorSand,
+    fontSize: 20,
+    height: 100,
+    marginBottom: 20,
+    textAlign: 'center'
   },
   heading: {
     color: constants.actionColor,
     fontFamily: constants.bodyFontFamily,
-    fontSize: 16,
+    fontSize: 22,
+    marginBottom: 10
+  },
+  submit: {
+    backgroundColor: constants.actionColor,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 45,
+    width: 100
   }
 })
 
