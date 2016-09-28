@@ -15,6 +15,10 @@ var styles = StyleSheet.create({
     flex: 1,
   },
   addnew: {
+    paddingTop: 50
+  },
+  wrapper: {
+    flex: 2
   },
   listview: {
     flex: 1,
