@@ -6,23 +6,36 @@ const constants = {
   bodyFontFamily: 'Futura',
   colorWhite: '#fff',
   colorSand: '#F9FAF4',
-  colorLightGrey: '#f2f2f2'
+  colorLightGrey: '#f2f2f2',
+  colorDarkGrey: '#bababa'
 }
 
 var styles = StyleSheet.create({
   container: {
-    backgroundColor: constants.colorWhite,
     flex: 1,
   },
-  addnew: {
-    paddingTop: 50
+  navcontainer: {
+    flex: 1,
   },
-  wrapper: {
+  appcontainer: {
+    flexDirection: 'column',
     flex: 2
+  },
+  addnewcontainer: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    paddingTop: 44,
+    paddingLeft: 25,
+    paddingRight: 25,
+    paddingBottom: 0,
+  },
+  listwrapper: {
+    flex: 2,
+    paddingTop: 44
   },
   listview: {
     flex: 1,
-    paddingTop: 44
   },
   center: {
     textAlign: 'center',
@@ -48,14 +61,23 @@ var styles = StyleSheet.create({
     height: 50
   },
   newinput: {
-    borderColor: constants.colorLightGrey,
+    borderColor: constants.colorDarkGrey,
     borderWidth: 1,
     fontSize: 20,
     height: 40,
-    marginBottom: 20
+    paddingLeft: 10
+  },
+  newinputlarge: {
+    borderColor: constants.colorDarkGrey,
+    borderWidth: 1,
+    fontSize: 20,
+    height: 80,
+    paddingLeft: 10,
+    shadowOffset: {width: 0, height: 0}
   },
   picker: {
-    backgroundColor: constants.colorSand,
+    borderColor: constants.colorDarkGrey,
+    borderWidth: 1,
     fontSize: 20,
     height: 100,
     marginBottom: 20,
@@ -71,6 +93,7 @@ var styles = StyleSheet.create({
     backgroundColor: constants.actionColor,
     alignItems: 'center',
     justifyContent: 'center',
+    alignSelf: 'center',
     height: 45,
     width: 100
   }

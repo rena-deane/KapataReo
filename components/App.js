@@ -17,8 +17,7 @@ class App extends Component {
     super(props)
   }
 
-  addNew() {
-    console.log('props', this.props)
+  addNew = () => {
     this.props.navigator.push({
       title: 'tapiri',
       component: AddWord,
@@ -30,12 +29,12 @@ class App extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <ListView  style={styles.wrapper} />
+      <View style={styles.appcontainer}>
+        <ListView />
 
         <TouchableHighlight
           style={styles.action}
-          onPress={this.addNew.bind(this)}
+          onPress={this.addNew}
           underlay={styles.actionColor}>
             <Text style={styles.actionText}>+ tapiri</Text>
         </TouchableHighlight>

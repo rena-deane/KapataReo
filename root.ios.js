@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  AppRegistry,
+  AsyncStorage,
   NavigatorIOS,
   StatusBar,
   View
@@ -11,15 +11,30 @@ import App from './components/App'
 import styles from './styles'
 
 export default class RootNav extends Component {
+  constructor(props) {
+    super(props)
+
+  }
+
+  componentDidMount() {
+    AsyncStorage.getAllKeys()
+    .then((data) => {
+      console.log(data)
+    })
+    .catch((err) => {
+      throw err
+    })
+  }
+
   render() {
     return (
-      <NavigatorIOS
-        style={styles.container}
-        initialRoute={{
-          component: App,
-          title: 'katoa',
-        }}
-      />
-    );
+        <NavigatorIOS
+          style={styles.navcontainer}
+          initialRoute={{
+            component: App,
+            title: 'katoa',
+          }}
+        />
+    )
   }
 }

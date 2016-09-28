@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+  AsyncStorage,
   DatePickerIOS,
   PickerIOS,
   StyleSheet,
@@ -10,31 +11,59 @@ import {
 } from 'react-native'
 
 import styles from '../styles'
+import ListItem from './ListItem'
 
 const PickerItemIOS = PickerIOS.Item
 
 const TYPES = [
   'location',
-  'song' ,
+  'phrase',
+  'name',
+  'song',
   'word'
 ]
+
+const WORDS_KEY = '@KupuHouStorage:key'
 
 class AddWord extends Component {
   constructor(props){
     super(props)
-    this.state ={
+    this.state = {
       maoriword: '',
       englishword: '',
       description: '',
-      date: '',
-      type: 'word',
+      datetime: '',
+      type: 'song',
       locationtype: '',
       location: ''
     }
   }
+
+  componentDidMount() {
+    AsyncStorage.getAllKeys()
+    .then((data) => {
+      console.log('add word form getAllKeys ->', data)
+    })
+    .catch((err) => {
+      throw err
+    })
+  }
+
+  submit = () => {
+    const key = this.state.maoriword
+    const value = JSON.stringify(this.state)
+    console.log(value)
+    AsyncStorage.setItem(key, value);
+    this.props.navigator.push({
+      title: this.state.maoriword,
+      component: ListItem,
+      passprops: {}
+    })
+  }
+
   render() {
     return (
-      <View style={styles.addnew}>
+      <View style={styles.addnewcontainer}>
 
         <View>
           <Text style={styles.heading}>KUPU MAORI</Text>
@@ -57,7 +86,7 @@ class AddWord extends Component {
         <View>
           <Text style={styles.heading}>WHAKAMARAMA</Text>
           <TextInput
-            style={styles.newinput}
+            style={styles.newinputlarge}
             multiline = {true}
             numberOfLines = {4}
             onChangeText={(text) => this.setState({description: text})}
@@ -81,11 +110,12 @@ class AddWord extends Component {
           </PickerIOS>
         </View>
 
-        <TouchableHighlight onPress={this.props.submit} style={styles.submit}>
+        <TouchableHighlight onPress={this.submit} style={styles.submit}>
           <Text style={styles.submitText}>tapiri</Text>
         </TouchableHighlight>
+
       </View>
-    );
+    )
   }
 }
 
