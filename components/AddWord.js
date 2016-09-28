@@ -11,6 +11,7 @@ import {
 } from 'react-native'
 
 import styles from '../styles'
+import ListItem from './ListItem'
 
 const PickerItemIOS = PickerIOS.Item
 
@@ -23,53 +24,30 @@ const TYPES = [
 
 const WORDS_KEY = '@KupuHouStorage:key'
 const INITIAL_STATE= [
-  {
-    maoriword: '',
-    englishword: '',
-    description: '',
-    date: '',
-    type: 'song',
-    locationtype: '',
-    location: ''
-  }
+
 ]
 
 class AddWord extends Component {
   constructor(props){
     super(props)
     this.state = {
-      library: INITIAL_STATE,
-      isFetching: true,
-
+      maoriword: '',
+      englishword: '',
+      description: '',
+      date: '',
+      type: 'song',
+      locationtype: '',
+      location: ''
     }
   }
 
-  componentDidMount() {
-    console.log('I mounted')
-    this.loadState()
-  }
-
-  loadState = async () => {
-    console.log('I loaded')
-    AsyncStorage.getItem(WORDS_KEY)
-      .then((value) => {
-        if(value != null) {
-          this.setState({
-            library: value,
-            isFetching: false
-          })
-        } else {
-          this.errorMessage
-        }
-        console.log('value -->', value)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }
-
-  errorMessage = () => {
-
+  submit = () => {
+    this.props.navigator.push({
+      title: 'added',
+      component: ListItem,
+      passprops: {}
+    })
+    console.log(this.state)
   }
 
   render() {
@@ -109,7 +87,7 @@ class AddWord extends Component {
           <Text style={styles.heading}>MOMO</Text>
           <PickerIOS
             itemStyle={styles.picker}
-            selectedValue='phrase'
+            selectedValue={this.state.type}
             onValueChange={(newtype) => this.setState({type: newtype})}>
             {TYPES.map((type, index) => (
               <PickerItemIOS
@@ -121,14 +99,12 @@ class AddWord extends Component {
           </PickerIOS>
         </View>
 
-        {this.state.isFetching ? <Text style={{textAlign: 'center', color: 'orange'}}>Data not retrieved</Text> :
-          <TouchableHighlight onPress={this.props.submit} style={styles.submit}>
-            <Text style={styles.submitText}>tapiri</Text>
-          </TouchableHighlight>
-        }
+        <TouchableHighlight onPress={this.submit} style={styles.submit}>
+          <Text style={styles.submitText}>tapiri</Text>
+        </TouchableHighlight>
 
       </View>
-    );
+    )
   }
 }
 
