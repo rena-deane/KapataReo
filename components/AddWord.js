@@ -15,7 +15,8 @@ const PickerItemIOS = PickerIOS.Item
 
 const TYPES = [
   'location',
-  'song' ,
+  'phrase',
+  'song',
   'word'
 ]
 
@@ -27,14 +28,14 @@ class AddWord extends Component {
       englishword: '',
       description: '',
       date: '',
-      type: 'word',
+      type: 'song',
       locationtype: '',
       location: ''
     }
   }
   render() {
     return (
-      <View style={styles.addnew}>
+      <View style={styles.addnewcontainer}>
 
         <View>
           <Text style={styles.heading}>KUPU MAORI</Text>
@@ -57,7 +58,7 @@ class AddWord extends Component {
         <View>
           <Text style={styles.heading}>WHAKAMARAMA</Text>
           <TextInput
-            style={styles.newinput}
+            style={styles.newinputlarge}
             multiline = {true}
             numberOfLines = {4}
             onChangeText={(text) => this.setState({description: text})}
@@ -84,6 +85,7 @@ class AddWord extends Component {
         <TouchableHighlight onPress={this.props.submit} style={styles.submit}>
           <Text style={styles.submitText}>tapiri</Text>
         </TouchableHighlight>
+
       </View>
     );
   }

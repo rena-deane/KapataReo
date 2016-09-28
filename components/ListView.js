@@ -7,10 +7,12 @@ import {
 
 import styles from '../styles'
 
+// add ScrollView for all entries
+
 class ListView extends Component {
   render() {
     return (
-      <View style={styles.listview}>
+      <View style={styles.listwrapper}>
         <Text>
           List container items here
         </Text>
