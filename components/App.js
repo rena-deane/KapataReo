@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 import AddWord from './AddWord'
-import ListView from './ListView'
+import ListAll from './ListAll'
 
 import styles from '../styles'
 
@@ -30,7 +30,7 @@ class App extends Component {
   render() {
     return (
       <View style={styles.appcontainer}>
-        <ListView />
+        <ListAll />
 
         <TouchableHighlight
           style={styles.action}
