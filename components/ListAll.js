@@ -57,10 +57,12 @@ class ListAll extends Component {
 
   renderRow = (rowData, sectionID, rowID) => {
     return (
-      <ScrollView>
-        <Text>{rowData.maoriword}</Text>
-        <Text>{rowData.englishword}</Text>
-        <Text>{rowData.type}</Text>
+      <ScrollView style={styles.katoaView}>
+        <WordCard
+          maoriWord={rowData.maoriword}
+          englishWord={rowData.englishword}
+          type={rowData.type}
+        />
       </ScrollView>
     )
   }
