@@ -23,8 +23,6 @@ const TYPES = [
   'word'
 ]
 
-const WORDS_KEY = '@KupuHouStorage:key'
-
 class AddWord extends Component {
   constructor(props){
     super(props)
@@ -33,31 +31,22 @@ class AddWord extends Component {
       englishword: '',
       description: '',
       datetime: '',
-      type: 'song',
+      type: 'name',
       locationtype: '',
       location: ''
     }
   }
 
-  componentDidMount() {
-    AsyncStorage.getAllKeys()
-    .then((data) => {
-      console.log('add word form getAllKeys ->', data)
-    })
-    .catch((err) => {
-      throw err
-    })
-  }
-
   submit = () => {
     const key = this.state.maoriword
     const value = JSON.stringify(this.state)
-    console.log(value)
     AsyncStorage.setItem(key, value);
     this.props.navigator.push({
       title: this.state.maoriword,
       component: ListItem,
-      passprops: {}
+      passprops: {
+        
+      }
     })
   }
 

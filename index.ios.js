@@ -15,8 +15,11 @@ class KupuHou extends Component {
       <NavigatorIOS
         style={styles.navcontainer}
         initialRoute={{
+          barTintColor: '#6AC8AD',
+          shadowHidden: true,
           component: App,
           title: 'katoa',
+          titleTextColor: '#fff',
         }}
       />
     );

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   NavigatorIOS,
+  StatusBar,
   Text,
   TouchableHighlight,
   View
@@ -21,6 +22,7 @@ class App extends Component {
     this.props.navigator.push({
       title: 'tapiri',
       component: AddWord,
+      rightButtonTitle: 'Clear',
       passprops: {
         newProp: 'I am a prop'
       }
@@ -30,7 +32,10 @@ class App extends Component {
   render() {
     return (
       <View style={styles.appcontainer}>
-        <ListAll />
+        <StatusBar hidden={true} />
+        <ListAll
+          onPress={() => console.log('i made it without an err')}
+        />
 
         <TouchableHighlight
           style={styles.action}

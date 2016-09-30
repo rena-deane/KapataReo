@@ -2,32 +2,24 @@ import React, { Component } from 'react'
 import {
   StyleSheet,
   Text,
+  TouchableHighlight,
   View
 } from 'react-native'
 
+import styles from '../styles'
+
 export default (props) => {
     return (
-      <View style={styles.wordCard}>
-        <Text style={styles.maoriWord}>
-          {props.maoriWord}
-        </Text>
-        <Text style={styles.englishWord}>
-          {props.englishWord}
-        </Text>
-        <Text style={styles.type}>
-          {props.type}
-        </Text>
-      </View>
+        <View style={styles.card}>
+          <Text style={styles.maoriword}>
+            {props.maoriword}
+          </Text>
+          <Text style={styles.englishword}>
+            [ {props.englishword} ]
+          </Text>
+          <Text style={styles.type}>
+            {props.type}
+          </Text>
+        </View>
     )
 }
-
-const styles = StyleSheet.create({
-  wordCard: {
-    borderColor: '#000000',
-    borderWidth: 1,
-    backgroundColor: '#CCC',
-    margin: 10,
-    width: 100,
-    height: 100
-  }
-})

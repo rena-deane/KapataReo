@@ -6,14 +6,17 @@ import {
   ListView,
   Text,
   ScrollView,
+  TouchableHighlight,
   View
 } from 'react-native';
 
 import styles from '../styles'
 import WordCard from './WordCard'
+import ShowWord from './ShowWord'
 
 // add ScrollView for all entries
 
+const keysLength = 0
 
 class ListAll extends Component {
   constructor(props) {
@@ -26,6 +29,7 @@ class ListAll extends Component {
   componentDidMount() {
     AsyncStorage.getAllKeys()
       .then((words) => {
+        keysLength += words.length
         // use keys to get all the entries
         return AsyncStorage.multiGet(words)
       })
@@ -56,32 +60,26 @@ class ListAll extends Component {
   }
 
   renderRow = (rowData, sectionID, rowID) => {
-    return (
-      <View style={styles.card}>
-        <Text style={styles.maoriWord}>
-          {rowData.maoriword}
-        </Text>
-        <Text style={styles.englishWord}>
-          {rowData.englishword}
-        </Text>
-        <Text style={styles.type}>
-          {rowData.type}
-        </Text>
-      </View>
-    )
+      return (
+          <WordCard
+            maoriword={rowData.maoriword}
+            englishword={rowData.englishword}
+            type={rowData.type}
+          />
+      )
   }
 
   render() {
     return (
-      <ScrollView style={styles.cardsscroll}>
+      <View style={styles.cardsscroll}>
         {this.state.isFetching ? <ActivityIndicator animating={this.state.isFetching} size="large" /> :
-            <ListView
-              contentContainerStyle={styles.cardscontainer}
-              dataSource={this.state.data}
-              renderRow={this.renderRow}
-            />
+          <ListView
+            contentContainerStyle={styles.cardscontainer}
+            dataSource={this.state.data}
+            renderRow={this.renderRow}
+          />
         }
-      </ScrollView>
+      </View>
     )
   }
 }
