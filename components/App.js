@@ -3,6 +3,7 @@ import {
   AppRegistry,
   ActivityIndicator,
   AsyncStorage,
+  AlertIOS,
   ListView,
   NavigatorIOS,
   ScrollView,
@@ -16,6 +17,7 @@ import AddWord from './AddWord'
 import ShowWord from './ShowWord'
 
 import styles from '../styles'
+import deleteCard from '../lib/deleteCard'
 
 const keysLength = 0
 
@@ -76,6 +78,19 @@ class App extends Component {
     this.props.navigator.push({
       title: worddata.maoriword,
       component: ShowWord,
+      rightButtonTitle: 'tango',
+      onRightButtonPress: () => AlertIOS.alert(
+        'TANGO',
+        'Me tango i tenei kaari? Are you sure you want to delete this card?',
+        [
+          {text: 'Kao', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+          {text: 'Ae', onPress: () => {
+            deleteCard(worddata.maoriword)
+            this.props.navigator.pop()
+          }
+          },
+        ],
+      ),
       passprops: worddata
     })
   }
@@ -93,20 +108,19 @@ class App extends Component {
               renderRow={(rowData) =>
                 <View style={styles.card}>
                   <TouchableHighlight
-                    style={{backgroundColor: 'green'}}
                     onPress={() => this.goToWordCard(rowData)}
                     underlayColor={'#5cafec'}
                   >
-                    <View>
-                      <Text style={styles.maoriword}>
-                        {rowData.maoriword}
-                      </Text>
-                      <Text style={styles.englishword}>
-                        [ {rowData.englishword} ]
-                      </Text>
-                      <Text style={styles.type}>
-                        {rowData.type}
-                      </Text>
+                    <View style={styles.wordcontainer}>
+                        <Text style={styles.maoriword}>
+                          {rowData.maoriword}
+                        </Text>
+                        <Text style={styles.englishword}>
+                          [ {rowData.englishword} ]
+                        </Text>
+                        <Text style={styles.type}>
+                          {rowData.type}
+                        </Text>
                     </View>
                   </TouchableHighlight>
                 </View>
