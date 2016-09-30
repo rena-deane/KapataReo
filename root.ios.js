@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  AsyncStorage,
   NavigatorIOS,
   StatusBar,
   View
@@ -13,17 +12,6 @@ import styles from './styles'
 export default class RootNav extends Component {
   constructor(props) {
     super(props)
-
-  }
-
-  componentDidMount() {
-    AsyncStorage.getAllKeys()
-    .then((data) => {
-      console.log(data)
-    })
-    .catch((err) => {
-      throw err
-    })
   }
 
   render() {
