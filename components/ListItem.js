@@ -6,9 +6,6 @@ import {
 } from 'react-native';
 
 import styles from '../styles'
-import ListView from './ListView'
-
-// add ScrollView for all entries
 
 class ListItem extends Component {
   constructor(props) {
@@ -24,7 +21,7 @@ class ListItem extends Component {
 
   render() {
     return (
-      <View style={styles.listitem}>
+      <View>
         <Text>
           List container items here
         </Text>

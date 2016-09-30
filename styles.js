@@ -30,15 +30,25 @@ var styles = StyleSheet.create({
     paddingRight: 25,
     paddingBottom: 0,
   },
-  listwrapper: {
+  cardsscroll: {
+    backgroundColor: 'pink',
     flex: 2,
-    paddingTop: 44
+    paddingTop: 44,
   },
-  listview: {
+  wordcard: {
+    backgroundColor: 'red',
+    flexDirection: 'column',
     flex: 1,
   },
-  center: {
-    textAlign: 'center',
+  card: {
+    borderColor: '#000000',
+    borderWidth: 1,
+    backgroundColor: '#CCC',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 10,
+    width: 100,
+    height: 100,
   },
   actionText: {
     color: constants.actionColor,

@@ -57,22 +57,26 @@ class ListAll extends Component {
 
   renderRow = (rowData, sectionID, rowID) => {
     return (
-      <ScrollView style={styles.katoaView}>
-        <WordCard
-          maoriWord={rowData.maoriword}
-          englishWord={rowData.englishword}
-          type={rowData.type}
-        />
-      </ScrollView>
+      <View style={styles.card}>
+        <Text style={styles.maoriWord}>
+          {rowData.maoriword}
+        </Text>
+        <Text style={styles.englishWord}>
+          {rowData.englishword}
+        </Text>
+        <Text style={styles.type}>
+          {rowData.type}
+        </Text>
+      </View>
     )
   }
 
   render() {
-    console.log(this.state.data)
     return (
-      <ScrollView style={styles.listwrapper}>
+      <ScrollView style={styles.cardsscroll}>
         {this.state.isFetching ? <ActivityIndicator animating={this.state.isFetching} size="large" /> :
             <ListView
+              style={styles.wordcard}
               dataSource={this.state.data}
               renderRow={this.renderRow}
             />
@@ -84,9 +88,8 @@ class ListAll extends Component {
 
 export default ListAll
 
-// words.map((word, index) => {
-//   return  <WordCard
-//             key={index}
-//             maoriWord={word.maoriWord}
-//             englishWord={word.englishWord}
-//           />
+// <WordCard
+//   maoriWord={rowData.maoriword}
+//   englishWord={rowData.englishword}
+//   type={rowData.type}
+// />

@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
+  StyleSheet,
   Text,
   View
-} from 'react-native';
-
-import styles from '../styles'
+} from 'react-native'
 
 export default (props) => {
     return (
@@ -21,3 +20,14 @@ export default (props) => {
       </View>
     )
 }
+
+const styles = StyleSheet.create({
+  wordCard: {
+    borderColor: '#000000',
+    borderWidth: 1,
+    backgroundColor: '#CCC',
+    margin: 10,
+    width: 100,
+    height: 100
+  }
+})
