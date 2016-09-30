@@ -3,6 +3,7 @@ import {
   AppRegistry,
   ActivityIndicator,
   AsyncStorage,
+  AlertIOS,
   ListView,
   NavigatorIOS,
   ScrollView,
@@ -76,6 +77,15 @@ class App extends Component {
     this.props.navigator.push({
       title: worddata.maoriword,
       component: ShowWord,
+      rightButtonTitle: 'tango',
+      onRightButtonPress: () => AlertIOS.alert(
+        'TANGO',
+        'Me tango i tenei kaari? Are you sure you want to delete this card?',
+        [
+          {text: 'Kao', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+          {text: 'Ae', onPress: () => console.log('Ae Pressed')},
+        ],
+      ),
       passprops: worddata
     })
   }
