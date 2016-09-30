@@ -17,6 +17,7 @@ import AddWord from './AddWord'
 import ShowWord from './ShowWord'
 
 import styles from '../styles'
+import deleteCard from '../lib/deleteCard'
 
 const keysLength = 0
 
@@ -83,7 +84,11 @@ class App extends Component {
         'Me tango i tenei kaari? Are you sure you want to delete this card?',
         [
           {text: 'Kao', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-          {text: 'Ae', onPress: () => console.log('Ae Pressed')},
+          {text: 'Ae', onPress: () => {
+            deleteCard(worddata.maoriword)
+            this.props.navigator.pop()
+          }
+          },
         ],
       ),
       passprops: worddata
