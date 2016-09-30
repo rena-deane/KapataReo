@@ -93,20 +93,19 @@ class App extends Component {
               renderRow={(rowData) =>
                 <View style={styles.card}>
                   <TouchableHighlight
-                    style={{backgroundColor: 'green'}}
                     onPress={() => this.goToWordCard(rowData)}
                     underlayColor={'#5cafec'}
                   >
-                    <View>
-                      <Text style={styles.maoriword}>
-                        {rowData.maoriword}
-                      </Text>
-                      <Text style={styles.englishword}>
-                        [ {rowData.englishword} ]
-                      </Text>
-                      <Text style={styles.type}>
-                        {rowData.type}
-                      </Text>
+                    <View style={styles.wordcontainer}>
+                        <Text style={styles.maoriword}>
+                          {rowData.maoriword}
+                        </Text>
+                        <Text style={styles.englishword}>
+                          [ {rowData.englishword} ]
+                        </Text>
+                        <Text style={styles.type}>
+                          {rowData.type}
+                        </Text>
                     </View>
                   </TouchableHighlight>
                 </View>
