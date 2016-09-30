@@ -19,22 +19,16 @@ class ShowWord extends Component {
   render() {
     const obj = this.props.route.passprops
     return (
-      <View style={{backgroundColor:'pink', flex: 1}}>
-        <Text>
-          {obj.maoriword}
-        </Text>
-        <Text>
-          {obj.maoriword}
-        </Text>
-        <Text>
-          {obj.maoriword}
-        </Text>
-        <Text>
-          {obj.maoriword}
-        </Text>
-        <Text>
-          {obj.maoriword}
-        </Text>
+      <View style={styles.wordcontainer}>
+        <View>
+          <Text style={styles.maorifull}>{obj.maoriword}</Text>
+        </View>
+        <View>
+          <Text style={styles.englishfull}>{obj.maoriword}</Text>
+        </View>
+        <View>
+          <Text style={styles.descriptionfull}>{obj.description}</Text>
+        </View>
       </View>
     );
   }
