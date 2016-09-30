@@ -3,10 +3,12 @@ import { StyleSheet } from 'react-native'
 
 const constants = {
   actionColor: '#6AC8AD',
-  bodyFontFamily: 'Futura',
+  bodyFontFamily: 'Avenir',
+  thinFontFamily: 'Avenir-Light',
+  cardFontFamily: 'Baskerville',
   colorWhite: '#fff',
-  colorSand: '#F9FAF4',
-  colorLightGrey: '#f2f2f2',
+  colorSand: '#d7dbc3',
+  colorLightGrey: '#d3d3d3',
   colorDarkGrey: '#bababa'
 }
 
@@ -31,25 +33,43 @@ var styles = StyleSheet.create({
     paddingBottom: 0,
   },
   cardsscroll: {
-    backgroundColor: 'pink',
     flex: 2,
     paddingTop: 44,
   },
   cardscontainer: {
-    backgroundColor: 'red',
+    flexDirection: 'column',
+    justifyContent: 'center',
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    flex: 1,
+    flexWrap: 'wrap'
+
   },
   card: {
-    borderColor: '#000000',
     borderWidth: 1,
-    backgroundColor: '#CCC',
+    borderColor: constants.colorLightGrey,
+    backgroundColor: constants.colorWhite,
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 10,
-    width: 100,
-    height: 100,
+    margin: 5,
+    width: 190,
+    height: 190,
+  },
+  maoriword: {
+    color: constants.actionColor,
+    fontFamily: constants.cardFontFamily,
+    fontSize: 30,
+    paddingRight: 5,
+    paddingLeft: 5,
+    textAlign: 'center'
+  },
+  englishword: {
+    color: constants.actionColor,
+    fontFamily: constants.thinFontFamily,
+    fontSize: 18,
+    fontWeight: "200",
+    marginTop: 5
+  },
+  type: {
+    marginTop: 30
   },
   actionText: {
     color: constants.actionColor,
