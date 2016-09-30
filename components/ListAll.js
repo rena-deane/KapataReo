@@ -76,7 +76,7 @@ class ListAll extends Component {
       <ScrollView style={styles.cardsscroll}>
         {this.state.isFetching ? <ActivityIndicator animating={this.state.isFetching} size="large" /> :
             <ListView
-              style={styles.wordcard}
+              contentContainerStyle={styles.cardscontainer}
               dataSource={this.state.data}
               renderRow={this.renderRow}
             />

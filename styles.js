@@ -35,9 +35,10 @@ var styles = StyleSheet.create({
     flex: 2,
     paddingTop: 44,
   },
-  wordcard: {
+  cardscontainer: {
     backgroundColor: 'red',
-    flexDirection: 'column',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
     flex: 1,
   },
   card: {
