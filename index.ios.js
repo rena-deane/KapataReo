@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
-  StatusBar,
+  NavigatorIOS,
   View
 } from 'react-native';
 
 import App from './components/App'
-import RootNav from './root.ios'
 
 import styles from './styles'
 
 class KupuHou extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <StatusBar hidden={true} />
-        <RootNav />
-      </View>
+      <NavigatorIOS
+        style={styles.navcontainer}
+        initialRoute={{
+          component: App,
+          title: 'katoa',
+        }}
+      />
     );
   }
 }
