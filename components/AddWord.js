@@ -12,7 +12,6 @@ import {
 } from 'react-native'
 
 import styles from '../styles'
-import ListItem from './ListItem'
 import App from './App'
 import ShowWord from './ShowWord'
 
