@@ -3,13 +3,14 @@ import {
   AsyncStorage,
   PickerIOS,
   PickerItemIOS,
+  StyleSheet,
   Text,
   TextInput,
   TouchableHighlight,
   View
 } from 'react-native'
 
-import styles from '../styles'
+import styles, { constants } from '../styles'
 
 const TYPES = [
   'location',
@@ -22,6 +23,7 @@ const TYPES = [
 class ShowWord extends Component {
   constructor(props) {
     super(props)
+    console.log('my new props', this.props.route.passprops)
     this.state = {
       maoriword: this.props.route.passprops.maoriword,
       englishword: this.props.route.passprops.englishword,
@@ -49,7 +51,7 @@ class ShowWord extends Component {
 
   render() {
     return (
-      <View style={styles.wordcontainer}>
+      <View style={editStyles.wordcontainer}>
         { this.state.canEdit ?
             <View style={{backgroundColor: 'pink', width: 400, }}>
               <View>
@@ -100,29 +102,62 @@ class ShowWord extends Component {
           :
           <View>
             <View>
-              <Text style={styles.maorifull}>{this.state.maoriword}</Text>
+              <Text style={editStyles.maorifull}>{this.state.maoriword}</Text>
             </View>
 
             <View>
-              <Text style={styles.englishfull}>{this.state.englishword}</Text>
+              <Text style={editStyles.englishfull}>[ {this.state.englishword} ]</Text>
             </View>
 
             <View>
-              <Text style={styles.descriptionfull}>{this.state.description}</Text>
+              <Text style={editStyles.descriptionfull}>{this.state.description}</Text>
             </View>
 
             <View>
-              <Text style={styles.descriptionfull}>{this.state.type}</Text>
+              <Text style={editStyles.typefull}>{this.state.type}</Text>
             </View>
           </View>
         }
         <TouchableHighlight onPress={() => this.setState({canEdit: true})}>
-          <Text style={{backgroundColor: 'green', color: 'white'}}>Edit</Text>
+          <Text style={editStyles.edit}>Edit</Text>
         </TouchableHighlight>
 
       </View>
     )
   }
 }
+
+const editStyles = StyleSheet.create({
+  wordcontainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  maorifull: {
+    fontSize: 60,
+    fontFamily: constants.cardFontFamily,
+    color: constants.colorTeal,
+    textAlign: 'center'
+  },
+  englishfull: {
+    fontFamily: constants.mediumFont,
+    fontSize: 20,
+    height: 40,
+    color: constants.colorTeal,
+    textAlign: 'center'
+  },
+  descriptionfull: {
+    fontFamily: constants.cardFontFamily,
+    fontSize: 30,
+    textAlign: 'center'
+  },
+  typefull: {
+
+  },
+  edit: {
+    backgroundColor: 'green',
+    color: 'white'
+  }
+})
 
 export default ShowWord
