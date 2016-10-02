@@ -10,6 +10,7 @@ import App from './components/App'
 import styles from './styles'
 
 class KupuHou extends Component {
+
   render() {
     return (
       <NavigatorIOS
@@ -25,6 +26,5 @@ class KupuHou extends Component {
     );
   }
 }
-
 
 AppRegistry.registerComponent('KupuHou', () => KupuHou);

@@ -12,6 +12,7 @@ import {
 
 import styles from '../styles'
 import ListItem from './ListItem'
+import App from './App'
 
 const PickerItemIOS = PickerIOS.Item
 
@@ -45,7 +46,7 @@ class AddWord extends Component {
       title: this.state.maoriword,
       component: ListItem,
       passprops: {
-        
+
       }
     })
   }

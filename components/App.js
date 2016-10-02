@@ -17,6 +17,7 @@ import AddWord from './AddWord'
 import ShowWord from './ShowWord'
 
 import styles from '../styles'
+
 import deleteCard from '../lib/deleteCard'
 
 const keysLength = 0
@@ -73,24 +74,27 @@ class App extends Component {
     })
   }
 
+  ConfirmDelete = (data) => {
+    AlertIOS.alert(
+      'TANGO',
+      'Me tango i tenei kaari? Are you sure you want to delete this card?',
+      [
+        {text: 'Kao', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+        {text: 'Ae', onPress: () => {
+          deleteCard(data.maoriword)
+          this.props.navigator.popToTop()
+        }},
+      ],
+    )
+  }
+
   goToWordCard = (worddata) => {
     console.log('i touched rowData', worddata)
     this.props.navigator.push({
       title: worddata.maoriword,
       component: ShowWord,
       rightButtonTitle: 'tango',
-      onRightButtonPress: () => AlertIOS.alert(
-        'TANGO',
-        'Me tango i tenei kaari? Are you sure you want to delete this card?',
-        [
-          {text: 'Kao', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-          {text: 'Ae', onPress: () => {
-            deleteCard(worddata.maoriword)
-            this.props.navigator.pop()
-          }
-          },
-        ],
-      ),
+      onRightButtonPress: () => this.ConfirmDelete(worddata),
       passprops: worddata
     })
   }
