@@ -134,10 +134,10 @@ class App extends Component {
         </View>
 
         <TouchableHighlight
-          style={styles.action}
+          style={styles.addButton}
           onPress={this.addNew}
           underlay={styles.actionColor}>
-            <Text style={styles.actionText}>+ tapiri</Text>
+            <Text style={styles.addButtonText}>+ tapiri</Text>
         </TouchableHighlight>
       </View>
     );

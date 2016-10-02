@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+  AlertIOS,
   AsyncStorage,
   DatePickerIOS,
   PickerIOS,
@@ -13,6 +14,7 @@ import {
 import styles from '../styles'
 import ListItem from './ListItem'
 import App from './App'
+import ShowWord from './ShowWord'
 
 const PickerItemIOS = PickerIOS.Item
 
@@ -38,16 +40,43 @@ class AddWord extends Component {
     }
   }
 
+  ConfirmDelete = (data) => {
+    AlertIOS.alert(
+      'TANGO',
+      'Me tango i tenei kaari? Are you sure you want to delete this card?',
+      [
+        {text: 'Kao', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+        {text: 'Ae', onPress: () => {
+          deleteCard(data.maoriword)
+          this.props.navigator.popToTop()
+        }},
+      ],
+    )
+  }
+
   submit = () => {
     const key = this.state.maoriword
     const value = JSON.stringify(this.state)
     AsyncStorage.setItem(key, value);
     this.props.navigator.push({
       title: this.state.maoriword,
-      component: ListItem,
-      passprops: {
+      component: ShowWord,
+      leftButtonTitle: 'katoa',
+      onLeftButtonPress: () => this.props.navigator.popToTop(),
+      rightButtonTitle: 'tango',
+      onRightButtonPress: () => this.ConfirmDelete(this.state),
+      passprops: this.state
+    })
+  }
 
-      }
+  goToWordCard = (worddata) => {
+    console.log('i touched rowData', worddata)
+    this.props.navigator.push({
+      title: worddata.maoriword,
+      component: ShowWord,
+      rightButtonTitle: 'tango',
+      onRightButtonPress: () => this.ConfirmDelete(worddata),
+      passprops: worddata
     })
   }
 
