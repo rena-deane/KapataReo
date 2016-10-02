@@ -6,6 +6,7 @@ import {
   AlertIOS,
   ListView,
   NavigatorIOS,
+  RefreshControl,
   ScrollView,
   StatusBar,
   Text,
@@ -26,11 +27,17 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isFetching: true
+      isFetching: true,
+      refreshing: false
     }
   }
 
   componentDidMount() {
+    this.initialiseData()
+  }
+
+  initialiseData = () => {
+    console.log('startup');
     AsyncStorage.getAllKeys()
       .then((words) => {
         keysLength += words.length
@@ -82,6 +89,7 @@ class App extends Component {
         {text: 'Kao', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
         {text: 'Ae', onPress: () => {
           deleteCard(data.maoriword)
+          this.onRefresh()
           this.props.navigator.popToTop()
         }},
       ],
@@ -89,7 +97,6 @@ class App extends Component {
   }
 
   goToWordCard = (worddata) => {
-    console.log('i touched rowData', worddata)
     this.props.navigator.push({
       title: worddata.maoriword,
       component: ShowWord,
