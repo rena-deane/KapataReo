@@ -55,11 +55,6 @@ var styles = StyleSheet.create({
     width: 190,
     height: 190,
   },
-  wordcontainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   maoriword: {
     fontFamily: constants.cardFontFamily,
     fontSize: 30,
