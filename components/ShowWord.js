@@ -45,7 +45,6 @@ class ShowWord extends Component {
     .catch((err) => {
       console.error(err)
     })
-
   }
 
   render() {
@@ -54,7 +53,6 @@ class ShowWord extends Component {
         { this.state.canEdit ?
             <View style={{backgroundColor: 'pink', width: 400, }}>
               <View>
-                <Text style={styles.heading}>KUPU MAORI</Text>
                 <TextInput
                   style={styles.newinput}
                   onChangeText={(text) => this.setState({maoriword: text})}
@@ -62,7 +60,6 @@ class ShowWord extends Component {
                 />
               </View>
               <View>
-                <Text style={styles.heading}>KUPU PAKEHA</Text>
                 <TextInput
                   style={styles.newinput}
                   onChangeText={(text) => this.setState({englishword: text})}
@@ -71,7 +68,6 @@ class ShowWord extends Component {
                 />
               </View>
               <View>
-                <Text style={styles.heading}>WHAKAMARAMA</Text>
                 <TextInput
                   style={styles.newinput}
                   multiline = {true}
@@ -82,7 +78,6 @@ class ShowWord extends Component {
               </View>
 
               <View>
-              <Text style={styles.heading}>MOMO</Text>
               <PickerIOS
               itemStyle={styles.picker}
               selectedValue={this.state.type}
