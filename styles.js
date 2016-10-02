@@ -2,13 +2,14 @@ import React from 'react-native'
 import { StyleSheet } from 'react-native'
 
 const constants = {
-  actionColor: '#6AC8AD',
   bodyFontFamily: 'Avenir',
   thinFontFamily: 'Avenir-Light',
-  mediumFont: 'Avenir-Medium',
+  mediumFont: 'Avenir-Book',
   cardFontFamily: 'Baskerville',
+  colorDarkTeal: '#35826b',
   colorWhite: '#fff',
   colorSand: '#f0f2de',
+  colorTeal: '#6AC8AD',
   colorLightGrey: '#d3d3d3',
   colorDarkGrey: '#bababa'
 }
@@ -36,12 +37,13 @@ var styles = StyleSheet.create({
   cardsscroll: {
     flex: 2,
     paddingTop: 44,
+    alignItems: 'center',
   },
   cardscontainer: {
-    flexDirection: 'column',
+    marginTop: 5,
+    flexDirection: 'row',
     alignItems: 'center',
     flexWrap: 'wrap'
-
   },
   card: {
     borderWidth: 1,
@@ -49,9 +51,9 @@ var styles = StyleSheet.create({
     backgroundColor: constants.colorWhite,
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 10,
-    width: 250,
-    height: 150,
+    margin: 5,
+    width: 190,
+    height: 190,
   },
   wordcontainer: {
     flex: 1,
@@ -59,17 +61,17 @@ var styles = StyleSheet.create({
     alignItems: 'center',
   },
   maoriword: {
-    color: constants.actionColor,
     fontFamily: constants.cardFontFamily,
     fontSize: 30,
+    color: constants.colorTeal,
     paddingRight: 5,
     paddingLeft: 5,
     textAlign: 'center'
   },
   englishword: {
-    color: constants.actionColor,
     fontFamily: constants.thinFontFamily,
     fontSize: 18,
+    color: constants.colorTeal,
     fontWeight: "200",
     marginTop: 5
   },
@@ -77,9 +79,9 @@ var styles = StyleSheet.create({
     marginTop: 30
   },
   addButtonText: {
-    color: constants.actionColor,
     fontFamily: constants.mediumFont,
     fontSize: 22,
+    color: constants.colorTeal,
     textAlign: 'center',
   },
   addButton: {
@@ -120,15 +122,15 @@ var styles = StyleSheet.create({
     textAlign: 'center'
   },
   heading: {
-    color: constants.actionColor,
     fontFamily: constants.bodyFontFamily,
     fontSize: 22,
+    color: constants.colorTeal,
     marginBottom: 10
   },
   submit: {
-    backgroundColor: constants.actionColor,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: constants.colorTeal,
     alignSelf: 'center',
     height: 45,
     width: 100

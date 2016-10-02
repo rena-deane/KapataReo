@@ -21,8 +21,6 @@ import styles from '../styles'
 
 import deleteCard from '../lib/deleteCard'
 
-const keysLength = 0
-
 class App extends Component {
   constructor(props) {
     super(props)
@@ -40,8 +38,6 @@ class App extends Component {
     console.log('startup');
     AsyncStorage.getAllKeys()
       .then((words) => {
-        keysLength += words.length
-        // use keys to get all the entries
         return AsyncStorage.multiGet(words)
       })
       .then((allWords) => {
