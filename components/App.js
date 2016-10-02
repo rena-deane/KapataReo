@@ -77,7 +77,11 @@ class App extends Component {
       rightButtonTitle: 'Clear',
       passprops: {
         newProp: 'I am a prop'
-      }
+      },
+      barTintColor: '#6AC8AD',
+      shadowHidden: true,
+      titleTextColor: '#fff',
+      tintColor: '#f0f2de'
     })
   }
 
@@ -89,7 +93,7 @@ class App extends Component {
         {text: 'Kao', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
         {text: 'Ae', onPress: () => {
           deleteCard(data.maoriword)
-          this.onRefresh()
+          this.initialiseData()
           this.props.navigator.popToTop()
         }},
       ],
@@ -100,9 +104,18 @@ class App extends Component {
     this.props.navigator.push({
       title: worddata.maoriword,
       component: ShowWord,
+      leftButtonTitle: 'katoa',
+      onLeftButtonPress: () => {
+        this.initialiseData()
+        this.props.navigator.popToTop()
+      },
       rightButtonTitle: 'tango',
       onRightButtonPress: () => this.ConfirmDelete(worddata),
-      passprops: worddata
+      passprops: worddata,
+      barTintColor: '#6AC8AD',
+      shadowHidden: true,
+      titleTextColor: '#fff',
+      tintColor: '#f0f2de'
     })
   }
 

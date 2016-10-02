@@ -15,6 +15,8 @@ import styles from '../styles'
 import App from './App'
 import ShowWord from './ShowWord'
 
+import deleteCard from '../lib/deleteCard'
+
 const PickerItemIOS = PickerIOS.Item
 
 const TYPES = [
@@ -39,6 +41,40 @@ class AddWord extends Component {
     }
   }
 
+  initialiseData = () => {
+    console.log('startup');
+    AsyncStorage.getAllKeys()
+      .then((words) => {
+        keysLength += words.length
+        // use keys to get all the entries
+        return AsyncStorage.multiGet(words)
+      })
+      .then((allWords) => {
+        let ENTRIES = []
+
+        allWords.map((word) => {
+          ENTRIES.push(word[1])
+        })
+        return ENTRIES
+      })
+      .then((wordsArr) => {
+
+        let words = []
+        wordsArr.map((word) => {
+          words.push(JSON.parse(word))
+        })
+
+        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
+        this.setState({
+          data: ds.cloneWithRows(words),
+          isFetching: false
+        })
+      })
+      .catch((err) => {
+        throw err
+      })
+  }
+
   ConfirmDelete = (data) => {
     AlertIOS.alert(
       'TANGO',
@@ -47,6 +83,7 @@ class AddWord extends Component {
         {text: 'Kao', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
         {text: 'Ae', onPress: () => {
           deleteCard(data.maoriword)
+          initialiseData()
           this.props.navigator.popToTop()
         }},
       ],
@@ -64,18 +101,11 @@ class AddWord extends Component {
       onLeftButtonPress: () => this.props.navigator.popToTop(),
       rightButtonTitle: 'tango',
       onRightButtonPress: () => this.ConfirmDelete(this.state),
-      passprops: this.state
-    })
-  }
-
-  goToWordCard = (worddata) => {
-    console.log('i touched rowData', worddata)
-    this.props.navigator.push({
-      title: worddata.maoriword,
-      component: ShowWord,
-      rightButtonTitle: 'tango',
-      onRightButtonPress: () => this.ConfirmDelete(worddata),
-      passprops: worddata
+      passprops: this.state,
+      barTintColor: '#6AC8AD',
+      shadowHidden: true,
+      titleTextColor: '#fff',
+      tintColor: '#f0f2de'
     })
   }
 
@@ -128,7 +158,7 @@ class AddWord extends Component {
           </PickerIOS>
         </View>
 
-        <TouchableHighlight onPress={this.submit} style={styles.submit}>
+        <TouchableHighlight onPress={() => this.submit()} style={styles.submit}>
           <Text style={styles.submitText}>tapiri</Text>
         </TouchableHighlight>
 

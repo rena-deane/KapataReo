@@ -84,9 +84,9 @@ class ShowWord extends Component {
               onValueChange={(newtype) => this.setState({type: newtype})}>
                 {TYPES.map((type, index) => (
                   <PickerItemIOS
-                  key={index}
-                  value={type}
-                  label={type}
+                    key={index}
+                    value={type}
+                    label={type}
                   />
                 ))}
               </PickerIOS>
