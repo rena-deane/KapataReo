@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+  AlertIOS,
   AsyncStorage,
   DatePickerIOS,
   PickerIOS,
@@ -11,8 +12,10 @@ import {
 } from 'react-native'
 
 import styles from '../styles'
-import ListItem from './ListItem'
 import App from './App'
+import ShowWord from './ShowWord'
+
+import deleteCard from '../lib/deleteCard'
 
 const PickerItemIOS = PickerIOS.Item
 
@@ -38,16 +41,71 @@ class AddWord extends Component {
     }
   }
 
+  initialiseData = () => {
+    console.log('startup');
+    AsyncStorage.getAllKeys()
+      .then((words) => {
+        keysLength += words.length
+        // use keys to get all the entries
+        return AsyncStorage.multiGet(words)
+      })
+      .then((allWords) => {
+        let ENTRIES = []
+
+        allWords.map((word) => {
+          ENTRIES.push(word[1])
+        })
+        return ENTRIES
+      })
+      .then((wordsArr) => {
+
+        let words = []
+        wordsArr.map((word) => {
+          words.push(JSON.parse(word))
+        })
+
+        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
+        this.setState({
+          data: ds.cloneWithRows(words),
+          isFetching: false
+        })
+      })
+      .catch((err) => {
+        throw err
+      })
+  }
+
+  ConfirmDelete = (data) => {
+    AlertIOS.alert(
+      'TANGO',
+      'Me tango i tenei kaari? Are you sure you want to delete this card?',
+      [
+        {text: 'Kao', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+        {text: 'Ae', onPress: () => {
+          deleteCard(data.maoriword)
+          initialiseData()
+          this.props.navigator.popToTop()
+        }},
+      ],
+    )
+  }
+
   submit = () => {
     const key = this.state.maoriword
     const value = JSON.stringify(this.state)
     AsyncStorage.setItem(key, value);
     this.props.navigator.push({
       title: this.state.maoriword,
-      component: ListItem,
-      passprops: {
-
-      }
+      component: ShowWord,
+      leftButtonTitle: 'katoa',
+      onLeftButtonPress: () => this.props.navigator.popToTop(),
+      rightButtonTitle: 'tango',
+      onRightButtonPress: () => this.ConfirmDelete(this.state),
+      passprops: this.state,
+      barTintColor: '#6AC8AD',
+      shadowHidden: true,
+      titleTextColor: '#fff',
+      tintColor: '#f0f2de'
     })
   }
 
@@ -100,7 +158,7 @@ class AddWord extends Component {
           </PickerIOS>
         </View>
 
-        <TouchableHighlight onPress={this.submit} style={styles.submit}>
+        <TouchableHighlight onPress={() => this.submit()} style={styles.submit}>
           <Text style={styles.submitText}>tapiri</Text>
         </TouchableHighlight>
 

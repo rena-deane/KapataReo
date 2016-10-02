@@ -6,6 +6,7 @@ import {
   AlertIOS,
   ListView,
   NavigatorIOS,
+  RefreshControl,
   ScrollView,
   StatusBar,
   Text,
@@ -26,11 +27,17 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isFetching: true
+      isFetching: true,
+      refreshing: false
     }
   }
 
   componentDidMount() {
+    this.initialiseData()
+  }
+
+  initialiseData = () => {
+    console.log('startup');
     AsyncStorage.getAllKeys()
       .then((words) => {
         keysLength += words.length
@@ -70,7 +77,11 @@ class App extends Component {
       rightButtonTitle: 'Clear',
       passprops: {
         newProp: 'I am a prop'
-      }
+      },
+      barTintColor: '#6AC8AD',
+      shadowHidden: true,
+      titleTextColor: '#fff',
+      tintColor: '#f0f2de'
     })
   }
 
@@ -82,6 +93,7 @@ class App extends Component {
         {text: 'Kao', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
         {text: 'Ae', onPress: () => {
           deleteCard(data.maoriword)
+          this.initialiseData()
           this.props.navigator.popToTop()
         }},
       ],
@@ -89,13 +101,21 @@ class App extends Component {
   }
 
   goToWordCard = (worddata) => {
-    console.log('i touched rowData', worddata)
     this.props.navigator.push({
       title: worddata.maoriword,
       component: ShowWord,
+      leftButtonTitle: 'katoa',
+      onLeftButtonPress: () => {
+        this.initialiseData()
+        this.props.navigator.popToTop()
+      },
       rightButtonTitle: 'tango',
       onRightButtonPress: () => this.ConfirmDelete(worddata),
-      passprops: worddata
+      passprops: worddata,
+      barTintColor: '#6AC8AD',
+      shadowHidden: true,
+      titleTextColor: '#fff',
+      tintColor: '#f0f2de'
     })
   }
 
@@ -134,10 +154,10 @@ class App extends Component {
         </View>
 
         <TouchableHighlight
-          style={styles.action}
+          style={styles.addButton}
           onPress={this.addNew}
           underlay={styles.actionColor}>
-            <Text style={styles.actionText}>+ tapiri</Text>
+            <Text style={styles.addButtonText}>+ tapiri</Text>
         </TouchableHighlight>
       </View>
     );

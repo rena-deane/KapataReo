@@ -5,9 +5,10 @@ const constants = {
   actionColor: '#6AC8AD',
   bodyFontFamily: 'Avenir',
   thinFontFamily: 'Avenir-Light',
+  mediumFont: 'Avenir-Medium',
   cardFontFamily: 'Baskerville',
   colorWhite: '#fff',
-  colorSand: '#d7dbc3',
+  colorSand: '#f0f2de',
   colorLightGrey: '#d3d3d3',
   colorDarkGrey: '#bababa'
 }
@@ -38,8 +39,7 @@ var styles = StyleSheet.create({
   },
   cardscontainer: {
     flexDirection: 'column',
-    justifyContent: 'center',
-    flexDirection: 'row',
+    alignItems: 'center',
     flexWrap: 'wrap'
 
   },
@@ -49,9 +49,9 @@ var styles = StyleSheet.create({
     backgroundColor: constants.colorWhite,
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 5,
-    width: 190,
-    height: 190,
+    margin: 10,
+    width: 250,
+    height: 150,
   },
   wordcontainer: {
     flex: 1,
@@ -76,25 +76,25 @@ var styles = StyleSheet.create({
   type: {
     marginTop: 30
   },
-  actionText: {
+  addButtonText: {
     color: constants.actionColor,
-    fontFamily: constants.bodyFontFamily,
-    fontSize: 20,
+    fontFamily: constants.mediumFont,
+    fontSize: 22,
     textAlign: 'center',
+  },
+  addButton: {
+    backgroundColor: constants.colorSand,
+    borderColor: 'transparent',
+    borderWidth: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 60
   },
   submitText: {
     color: constants.colorWhite,
     fontFamily: constants.bodyFontFamily,
     fontSize: 20,
     textAlign: 'center',
-  },
-  action: {
-    backgroundColor: constants.colorSand,
-    borderColor: 'transparent',
-    borderWidth: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 50
   },
   newinput: {
     borderColor: constants.colorDarkGrey,
