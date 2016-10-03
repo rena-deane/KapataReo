@@ -24,6 +24,7 @@ var styles = StyleSheet.create({
   },
   appcontainer: {
     flexDirection: 'column',
+    paddingTop: 44,
     flex: 2
   },
   addnewcontainer: {
