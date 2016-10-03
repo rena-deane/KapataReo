@@ -13,7 +13,7 @@ Store your learnings in your kapata reo
 - [ ] <strong>RELEASE 1 </strong>
 - FIX BUGS
   - Render latest word added - needs a hard refresh to show new word
-  - Order cards on `katoa`in alphabetical order
+  - Order cards on `katoa`in alphabeticaly
 - Store new maori phrases
 - Add english translation or description
 - Assign type to new entry to filter entries
