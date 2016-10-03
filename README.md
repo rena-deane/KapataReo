@@ -15,6 +15,7 @@ Store your learnings in your kapata reo
   - Render latest word added - needs a hard refresh to show new word
   - Order cards on `katoa`in alphabeticaly
 - Style splash/launch page
+- Recreate AppIcon to KR (replace KH)
 - Store new maori phrases
 - Add english translation or description
 - Assign type to new entry to filter entries
