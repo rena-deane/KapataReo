@@ -12,6 +12,7 @@ import {
 } from 'react-native'
 
 import styles, { constants } from '../styles'
+import editStyles from '../editStyles'
 
 const TYPES = [
   'location',
@@ -55,25 +56,31 @@ class ShowWord extends Component {
       <View style={editStyles.wordcontainer}>
         <View style={editStyles.wordfull}>
           { this.state.canEdit ?
-              <View style={{backgroundColor: 'pink', width: 400, }}>
+              <View style={editStyles.update}>
                 <View>
+                  <Text style={styles.heading}>KUPU MAORI</Text>
+
                   <TextInput
-                    style={styles.newinput}
+                    style={editStyles.newinputmaori}
                     onChangeText={(text) => this.setState({maoriword: text})}
                     value={this.state.maoriword}
                   />
                 </View>
                 <View>
+                  <Text style={styles.heading}>KUPU PAKEHA</Text>
+
                   <TextInput
-                    style={styles.newinput}
+                    style={editStyles.newinputenglish}
                     onChangeText={(text) => this.setState({englishword: text})}
                     value={this.state.englishword}
 
                   />
                 </View>
                 <View>
+                  <Text style={styles.heading}>WHAKAMARAMA</Text>
+
                   <TextInput
-                    style={styles.newinput}
+                    style={editStyles.newinputdescription}
                     multiline = {true}
                     numberOfLines = {4}
                     onChangeText={(text) => this.setState({description: text})}
@@ -82,22 +89,24 @@ class ShowWord extends Component {
                 </View>
 
                 <View>
-                <PickerIOS
-                itemStyle={styles.picker}
-                selectedValue={this.state.type}
-                onValueChange={(newtype) => this.setState({type: newtype})}>
-                  {TYPES.map((type, index) => (
-                    <PickerItemIOS
-                      key={index}
-                      value={type}
-                      label={type}
-                    />
-                  ))}
-                </PickerIOS>
+                  <Text style={styles.heading}>MOMO</Text>
+
+                  <PickerIOS
+                  itemStyle={editStyles.picker}
+                  selectedValue={this.state.type}
+                  onValueChange={(newtype) => this.setState({type: newtype})}>
+                    {TYPES.map((type, index) => (
+                      <PickerItemIOS
+                        key={index}
+                        value={type}
+                        label={type}
+                      />
+                    ))}
+                  </PickerIOS>
                 </View>
 
-                <TouchableHighlight onPress={() => this.updateWord()}>
-                  <Text style={editStyles.amend}>Update</Text>
+                <TouchableHighlight onPress={() => this.updateWord()} style={editStyles.button}>
+                  <Text style={editStyles.edit}>WHAKAHOU | Update</Text>
                 </TouchableHighlight>
 
               </View>
@@ -114,60 +123,18 @@ class ShowWord extends Component {
               <View>
                 <Text style={editStyles.descriptionfull}>{this.state.description}</Text>
               </View>
+
+              <TouchableHighlight onPress={() => this.setState({canEdit: true})} style={editStyles.button}>
+                  <Text style={editStyles.edit}>WHAKATIKA | Edit</Text>
+              </TouchableHighlight>
+
             </View>
           }
         </View>
 
-        <TouchableHighlight onPress={() => this.setState({canEdit: true})} style={editStyles.button}>
-          <Text style={editStyles.edit}>Edit</Text>
-        </TouchableHighlight>
       </View>
     )
   }
 }
-
-const editStyles = StyleSheet.create({
-  wordcontainer: {
-    flex: 1,
-  },
-  maorifull: {
-    fontSize: 60,
-    fontFamily: constants.cardFontFamily,
-    color: constants.colorTeal,
-    textAlign: 'center'
-  },
-  englishfull: {
-    fontFamily: constants.mediumFont,
-    fontSize: 20,
-    height: 40,
-    color: constants.colorTeal,
-    textAlign: 'center'
-  },
-  descriptionfull: {
-    fontFamily: constants.cardFontFamily,
-    fontSize: 30,
-    textAlign: 'center'
-  },
-  typefull: {
-    width: 50,
-    height:50
-  },
-  wordfull: {
-    flex: 2,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  button: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  edit: {
-    backgroundColor: constants.colorTeal,
-    color: constants.colorWhite,
-    width: 100,
-    height: 50
-  }
-})
 
 export default ShowWord

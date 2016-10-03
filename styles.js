@@ -5,6 +5,7 @@ const constants = {
   bodyFontFamily: 'Avenir',
   thinFontFamily: 'Avenir-Light',
   mediumFont: 'Avenir-Book',
+  heavyFont: 'Avenir-Medium',
   cardFontFamily: 'Baskerville',
   colorDarkTeal: '#35826b',
   colorWhite: '#fff',
@@ -55,6 +56,9 @@ var styles = StyleSheet.create({
     width: 190,
     height: 190,
   },
+  wordcontainer: {
+    flex: 1,
+  },
   maoriword: {
     fontFamily: constants.cardFontFamily,
     fontSize: 30,
@@ -68,10 +72,12 @@ var styles = StyleSheet.create({
     fontSize: 18,
     color: constants.colorTeal,
     fontWeight: "200",
-    marginTop: 5
+    marginTop: 5,
+    textAlign: 'center'
   },
   type: {
-    marginTop: 30
+    marginTop: 30,
+    textAlign: 'center'
   },
   addButtonText: {
     fontFamily: constants.mediumFont,
@@ -98,7 +104,8 @@ var styles = StyleSheet.create({
     borderWidth: 1,
     fontSize: 20,
     height: 40,
-    paddingLeft: 10
+    paddingLeft: 10,
+    width: 400
   },
   newinputlarge: {
     borderColor: constants.colorDarkGrey,
@@ -106,7 +113,10 @@ var styles = StyleSheet.create({
     fontSize: 20,
     height: 80,
     paddingLeft: 10,
-    shadowOffset: {width: 0, height: 0}
+    shadowOffset: {
+      width: 0,
+      height: 0
+    }
   },
   picker: {
     borderColor: constants.colorDarkGrey,
@@ -114,10 +124,11 @@ var styles = StyleSheet.create({
     fontSize: 20,
     height: 100,
     marginBottom: 20,
-    textAlign: 'center'
+    textAlign: 'center',
+    width: 400
   },
   heading: {
-    fontFamily: constants.bodyFontFamily,
+    fontFamily: constants.heavyFont,
     fontSize: 22,
     color: constants.colorTeal,
     marginBottom: 10
@@ -125,8 +136,8 @@ var styles = StyleSheet.create({
   submit: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: constants.colorTeal,
     alignSelf: 'center',
+    backgroundColor: constants.colorTeal,
     height: 45,
     width: 100
   }
