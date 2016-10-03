@@ -19,6 +19,7 @@ import ShowWord from './ShowWord'
 import deleteCard from '../lib/deleteCard'
 
 const PickerItemIOS = PickerIOS.Item
+const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
 
 const TYPES = [
   'location',
@@ -57,14 +58,9 @@ class AddWord extends Component {
   }
 
   submit = () => {
-    const key = this.state.maoriword
-    const value = JSON.stringify(this.state)
-    AsyncStorage.setItem(key, value);
     this.props.navigator.push({
       title: this.state.maoriword,
       component: ShowWord,
-      leftButtonTitle: 'katoa',
-      onLeftButtonPress: () => this.props.navigator.popToTop(),
       rightButtonTitle: 'tango',
       onRightButtonPress: () => this.ConfirmDelete(this.state),
       passprops: this.state,

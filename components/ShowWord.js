@@ -36,6 +36,7 @@ export default class ShowWord extends Component {
     }
   }
 
+
   updateWord = () => {
     AsyncStorage.removeItem(this.props.route.passprops.maoriword)
     .then(() => {
@@ -53,6 +54,7 @@ export default class ShowWord extends Component {
   }
 
   render() {
+    const data = this.state
     return (
       <View style={editStyles.wordcontainer}>
         <View style={editStyles.wordfull}>
@@ -131,7 +133,6 @@ export default class ShowWord extends Component {
             </View>
           }
         </View>
-
       </View>
     )
   }
