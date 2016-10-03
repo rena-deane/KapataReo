@@ -24,7 +24,6 @@ var styles = StyleSheet.create({
   },
   appcontainer: {
     flexDirection: 'column',
-    paddingTop: 44,
     flex: 2
   },
   addnewcontainer: {
@@ -44,7 +43,7 @@ var styles = StyleSheet.create({
   cardscontainer: {
     marginTop: 5,
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'stretch',
     flexWrap: 'wrap'
   },
   card: {
@@ -53,16 +52,17 @@ var styles = StyleSheet.create({
     backgroundColor: constants.colorWhite,
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 5,
-    width: 190,
-    height: 190,
+    marginLeft: 3,
+    marginRight: 3,
+    width: 150,
+    height: 150,
   },
   wordcontainer: {
     flex: 1,
   },
   maoriword: {
     fontFamily: constants.cardFontFamily,
-    fontSize: 30,
+    fontSize: 20,
     color: constants.colorTeal,
     paddingRight: 5,
     paddingLeft: 5,
@@ -70,13 +70,15 @@ var styles = StyleSheet.create({
   },
   englishword: {
     fontFamily: constants.thinFontFamily,
-    fontSize: 18,
+    fontSize: 16,
     color: constants.colorTeal,
     fontWeight: "200",
     marginTop: 5,
     textAlign: 'center'
   },
   type: {
+    fontFamily: constants.thinFontFamily,
+    fontSize: 16,
     marginTop: 30,
     textAlign: 'center'
   },
@@ -103,16 +105,15 @@ var styles = StyleSheet.create({
   newinput: {
     borderColor: constants.colorDarkGrey,
     borderWidth: 1,
-    fontSize: 20,
+    fontSize: 16,
     height: 40,
     paddingLeft: 10,
-    width: 400
   },
   newinputlarge: {
     borderColor: constants.colorDarkGrey,
     borderWidth: 1,
-    fontSize: 20,
-    height: 80,
+    fontSize: 16,
+    height: 50,
     paddingLeft: 10,
     shadowOffset: {
       width: 0,
@@ -124,13 +125,11 @@ var styles = StyleSheet.create({
     borderWidth: 1,
     fontSize: 20,
     height: 100,
-    marginBottom: 20,
     textAlign: 'center',
-    width: 400
   },
   heading: {
     fontFamily: constants.heavyFont,
-    fontSize: 22,
+    fontSize: 18,
     color: constants.colorTeal,
     marginBottom: 10
   },

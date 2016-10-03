@@ -85,6 +85,7 @@ class AddWord extends Component {
             style={styles.newinput}
             onChangeText={(text) => this.setState({maoriword: text})}
             placeholder='Maori word'
+            returnKeyType='next'
           />
         </View>
 
@@ -94,6 +95,7 @@ class AddWord extends Component {
             style={styles.newinput}
             onChangeText={(text) => this.setState({englishword: text})}
             placeholder='English word'
+            returnKeyType='next'
           />
         </View>
 
@@ -104,7 +106,8 @@ class AddWord extends Component {
             multiline = {true}
             numberOfLines = {4}
             onChangeText={(text) => this.setState({description: text})}
-            placeholder='Add sentences using the word or description'
+            placeholder='Add sentences/description'
+            returnKeyType='done'
           />
         </View>
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {
   AsyncStorage,
   Image,
+  Picker,
   PickerIOS,
   PickerItemIOS,
   StyleSheet,
@@ -22,7 +23,7 @@ const TYPES = [
   'word'
 ]
 
-class ShowWord extends Component {
+export default class ShowWord extends Component {
   constructor(props) {
     super(props)
     console.log('my new props', this.props.route.passprops)
@@ -57,7 +58,7 @@ class ShowWord extends Component {
         <View style={editStyles.wordfull}>
           { this.state.canEdit ?
               <View style={editStyles.update}>
-                <View>
+                <View style={editStyles.editview}>
                   <Text style={styles.heading}>KUPU MAORI</Text>
 
                   <TextInput
@@ -66,17 +67,18 @@ class ShowWord extends Component {
                     value={this.state.maoriword}
                   />
                 </View>
-                <View>
+
+                <View style={editStyles.editview}>
                   <Text style={styles.heading}>KUPU PAKEHA</Text>
 
                   <TextInput
                     style={editStyles.newinputenglish}
                     onChangeText={(text) => this.setState({englishword: text})}
                     value={this.state.englishword}
-
                   />
                 </View>
-                <View>
+
+                <View style={editStyles.editview}>
                   <Text style={styles.heading}>WHAKAMARAMA</Text>
 
                   <TextInput
@@ -91,18 +93,16 @@ class ShowWord extends Component {
                 <View>
                   <Text style={styles.heading}>MOMO</Text>
 
-                  <PickerIOS
-                  itemStyle={editStyles.picker}
-                  selectedValue={this.state.type}
-                  onValueChange={(newtype) => this.setState({type: newtype})}>
-                    {TYPES.map((type, index) => (
-                      <PickerItemIOS
-                        key={index}
-                        value={type}
-                        label={type}
-                      />
-                    ))}
-                  </PickerIOS>
+                  <Picker
+                    itemStyle={editStyles.picker}
+                    selectedValue={this.state.type}
+                    onValueChange={(newtype) => this.setState({type: newtype})}>
+                    <Picker.Item label="Location" value="location" />
+                    <Picker.Item label="Phrase" value="phrase" />
+                    <Picker.Item label="Name" value="name" />
+                    <Picker.Item label="Song" value="song" />
+                    <Picker.Item label="Word" value="word" />
+                  </Picker>
                 </View>
 
                 <TouchableHighlight onPress={() => this.updateWord()} style={editStyles.button}>
@@ -136,5 +136,3 @@ class ShowWord extends Component {
     )
   }
 }
-
-export default ShowWord

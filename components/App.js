@@ -120,13 +120,6 @@ class App extends Component {
       <View style={styles.appcontainer}>
         <StatusBar hidden={true} />
 
-        <TouchableHighlight
-         style={styles.addButton}
-         onPress={this.addNew}
-         underlay={styles.actionColor}>
-           <Text style={styles.addButtonText}>+ tapiri</Text>
-       </TouchableHighlight>
-
         <View style={styles.cardsscroll}>
           {this.state.isFetching ? <ActivityIndicator animating={this.state.isFetching} size="large" /> :
             <ListView
@@ -156,6 +149,14 @@ class App extends Component {
             />
           }
         </View>
+
+        <TouchableHighlight
+         style={styles.addButton}
+         onPress={this.addNew}
+         underlay={styles.actionColor}>
+           <Text style={styles.addButtonText}>+ tapiri</Text>
+        </TouchableHighlight>
+        
       </View>
     );
   }
