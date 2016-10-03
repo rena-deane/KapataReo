@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 import { constants } from './styles'
 
 const editConstants = {
-    width: 350,
+    width: 285,
     colorLightGrey: '#f2f2f2',
 }
 
@@ -11,10 +11,14 @@ const editStyles = StyleSheet.create({
   wordcontainer: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    paddingTop: 44,
+  },
+  editview: {
+    width: editConstants.width
   },
   maorifull: {
-    fontSize: 60,
+    fontSize: 40,
     fontFamily: constants.cardFontFamily,
     color: constants.colorTeal,
     textAlign: 'center'
@@ -30,7 +34,7 @@ const editStyles = StyleSheet.create({
     fontFamily: constants.cardFontFamily,
     fontSize: 30,
     textAlign: 'center',
-    marginBottom: 20,
+    marginBottom: 10,
   },
   typefull: {
     width: 50,
@@ -40,7 +44,6 @@ const editStyles = StyleSheet.create({
     flex: 2,
     alignItems: 'center',
     justifyContent: 'center',
-    width: editConstants.width
   },
   newinputmaori: {
     borderColor: editConstants.colorLightGrey,
@@ -50,7 +53,6 @@ const editStyles = StyleSheet.create({
     color: constants.colorTeal,
     height: 40,
     textAlign: 'center',
-    width: editConstants.width,
     marginBottom: 10
   },
   newinputenglish: {
@@ -61,7 +63,6 @@ const editStyles = StyleSheet.create({
     color: constants.colorTeal,
     height: 40,
     textAlign: 'center',
-    width: editConstants.width,
     marginBottom: 10
   },
   newinputdescription: {
@@ -72,7 +73,6 @@ const editStyles = StyleSheet.create({
     height: 80,
     marginBottom: 20,
     textAlign: 'center',
-    width: editConstants.width
   },
   picker: {
     borderColor: editConstants.colorLightGrey,
@@ -81,7 +81,6 @@ const editStyles = StyleSheet.create({
     height: 80,
     marginBottom: 20,
     textAlign: 'center',
-    width: editConstants.width
   },
   button: {
     alignItems: 'center',

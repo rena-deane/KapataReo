@@ -21,6 +21,8 @@ import styles from '../styles'
 
 import deleteCard from '../lib/deleteCard'
 
+const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -55,7 +57,6 @@ class App extends Component {
           words.push(JSON.parse(word))
         })
 
-        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
         this.setState({
           data: ds.cloneWithRows(words),
           isFetching: false
@@ -65,7 +66,6 @@ class App extends Component {
         throw err
       })
   }
-
   addNew = () => {
     this.props.navigator.push({
       title: 'tapiri',
@@ -123,6 +123,7 @@ class App extends Component {
         <View style={styles.cardsscroll}>
           {this.state.isFetching ? <ActivityIndicator animating={this.state.isFetching} size="large" /> :
             <ListView
+              enableEmptySections={true}
               contentContainerStyle={styles.cardscontainer}
               dataSource={this.state.data}
               renderRow={(rowData) =>
@@ -150,11 +151,12 @@ class App extends Component {
         </View>
 
         <TouchableHighlight
-          style={styles.addButton}
-          onPress={this.addNew}
-          underlay={styles.actionColor}>
-            <Text style={styles.addButtonText}>+ tapiri</Text>
+         style={styles.addButton}
+         onPress={this.addNew}
+         underlay={styles.actionColor}>
+           <Text style={styles.addButtonText}>+ tapiri</Text>
         </TouchableHighlight>
+        
       </View>
     );
   }
