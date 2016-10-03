@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
 import {
   AsyncStorage,
+  Image,
   PickerIOS,
   PickerItemIOS,
+  StyleSheet,
   Text,
   TextInput,
   TouchableHighlight,
   View
 } from 'react-native'
 
-import styles from '../styles'
+import styles, { constants } from '../styles'
+import editStyles from '../editStyles'
 
 const TYPES = [
   'location',
@@ -22,6 +25,7 @@ const TYPES = [
 class ShowWord extends Component {
   constructor(props) {
     super(props)
+    console.log('my new props', this.props.route.passprops)
     this.state = {
       maoriword: this.props.route.passprops.maoriword,
       englishword: this.props.route.passprops.englishword,
@@ -49,76 +53,84 @@ class ShowWord extends Component {
 
   render() {
     return (
-      <View style={styles.wordcontainer}>
-        { this.state.canEdit ?
-            <View style={{backgroundColor: 'pink', width: 400, }}>
-              <View>
-                <TextInput
-                  style={styles.newinput}
-                  onChangeText={(text) => this.setState({maoriword: text})}
-                  value={this.state.maoriword}
-                />
-              </View>
-              <View>
-                <TextInput
-                  style={styles.newinput}
-                  onChangeText={(text) => this.setState({englishword: text})}
-                  value={this.state.englishword}
+      <View style={editStyles.wordcontainer}>
+        <View style={editStyles.wordfull}>
+          { this.state.canEdit ?
+              <View style={editStyles.update}>
+                <View>
+                  <Text style={styles.heading}>KUPU MAORI</Text>
 
-                />
-              </View>
-              <View>
-                <TextInput
-                  style={styles.newinput}
-                  multiline = {true}
-                  numberOfLines = {4}
-                  onChangeText={(text) => this.setState({description: text})}
-                  value={this.state.description}
-                />
-              </View>
-
-              <View>
-              <PickerIOS
-              itemStyle={styles.picker}
-              selectedValue={this.state.type}
-              onValueChange={(newtype) => this.setState({type: newtype})}>
-                {TYPES.map((type, index) => (
-                  <PickerItemIOS
-                    key={index}
-                    value={type}
-                    label={type}
+                  <TextInput
+                    style={editStyles.newinputmaori}
+                    onChangeText={(text) => this.setState({maoriword: text})}
+                    value={this.state.maoriword}
                   />
-                ))}
-              </PickerIOS>
+                </View>
+                <View>
+                  <Text style={styles.heading}>KUPU PAKEHA</Text>
+
+                  <TextInput
+                    style={editStyles.newinputenglish}
+                    onChangeText={(text) => this.setState({englishword: text})}
+                    value={this.state.englishword}
+
+                  />
+                </View>
+                <View>
+                  <Text style={styles.heading}>WHAKAMARAMA</Text>
+
+                  <TextInput
+                    style={editStyles.newinputdescription}
+                    multiline = {true}
+                    numberOfLines = {4}
+                    onChangeText={(text) => this.setState({description: text})}
+                    value={this.state.description}
+                  />
+                </View>
+
+                <View>
+                  <Text style={styles.heading}>MOMO</Text>
+
+                  <PickerIOS
+                  itemStyle={editStyles.picker}
+                  selectedValue={this.state.type}
+                  onValueChange={(newtype) => this.setState({type: newtype})}>
+                    {TYPES.map((type, index) => (
+                      <PickerItemIOS
+                        key={index}
+                        value={type}
+                        label={type}
+                      />
+                    ))}
+                  </PickerIOS>
+                </View>
+
+                <TouchableHighlight onPress={() => this.updateWord()} style={editStyles.button}>
+                  <Text style={editStyles.edit}>WHAKAHOU | Update</Text>
+                </TouchableHighlight>
+
+              </View>
+            :
+            <View>
+              <View>
+                <Text style={editStyles.maorifull}>{this.state.maoriword}</Text>
               </View>
 
-              <TouchableHighlight onPress={() => this.updateWord()}>
-              <Text style={{backgroundColor: 'green', color: 'white'}}>Update</Text>
+              <View>
+                <Text style={editStyles.englishfull}>[ {this.state.englishword} ]</Text>
+              </View>
+
+              <View>
+                <Text style={editStyles.descriptionfull}>{this.state.description}</Text>
+              </View>
+
+              <TouchableHighlight onPress={() => this.setState({canEdit: true})} style={editStyles.button}>
+                  <Text style={editStyles.edit}>WHAKATIKA | Edit</Text>
               </TouchableHighlight>
 
             </View>
-          :
-          <View>
-            <View>
-              <Text style={styles.maorifull}>{this.state.maoriword}</Text>
-            </View>
-
-            <View>
-              <Text style={styles.englishfull}>{this.state.englishword}</Text>
-            </View>
-
-            <View>
-              <Text style={styles.descriptionfull}>{this.state.description}</Text>
-            </View>
-
-            <View>
-              <Text style={styles.descriptionfull}>{this.state.type}</Text>
-            </View>
-          </View>
-        }
-        <TouchableHighlight onPress={() => this.setState({canEdit: true})}>
-          <Text style={{backgroundColor: 'green', color: 'white'}}>Edit</Text>
-        </TouchableHighlight>
+          }
+        </View>
 
       </View>
     )

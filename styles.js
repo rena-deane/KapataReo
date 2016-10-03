@@ -2,13 +2,15 @@ import React from 'react-native'
 import { StyleSheet } from 'react-native'
 
 const constants = {
-  actionColor: '#6AC8AD',
   bodyFontFamily: 'Avenir',
   thinFontFamily: 'Avenir-Light',
-  mediumFont: 'Avenir-Medium',
+  mediumFont: 'Avenir-Book',
+  heavyFont: 'Avenir-Medium',
   cardFontFamily: 'Baskerville',
+  colorDarkTeal: '#35826b',
   colorWhite: '#fff',
   colorSand: '#f0f2de',
+  colorTeal: '#6AC8AD',
   colorLightGrey: '#d3d3d3',
   colorDarkGrey: '#bababa'
 }
@@ -36,12 +38,13 @@ var styles = StyleSheet.create({
   cardsscroll: {
     flex: 2,
     paddingTop: 44,
+    alignItems: 'center',
   },
   cardscontainer: {
-    flexDirection: 'column',
+    marginTop: 5,
+    flexDirection: 'row',
     alignItems: 'center',
     flexWrap: 'wrap'
-
   },
   card: {
     borderWidth: 1,
@@ -49,37 +52,37 @@ var styles = StyleSheet.create({
     backgroundColor: constants.colorWhite,
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 10,
-    width: 250,
-    height: 150,
+    margin: 5,
+    width: 190,
+    height: 190,
   },
   wordcontainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   maoriword: {
-    color: constants.actionColor,
     fontFamily: constants.cardFontFamily,
     fontSize: 30,
+    color: constants.colorTeal,
     paddingRight: 5,
     paddingLeft: 5,
     textAlign: 'center'
   },
   englishword: {
-    color: constants.actionColor,
     fontFamily: constants.thinFontFamily,
     fontSize: 18,
+    color: constants.colorTeal,
     fontWeight: "200",
-    marginTop: 5
+    marginTop: 5,
+    textAlign: 'center'
   },
   type: {
-    marginTop: 30
+    marginTop: 30,
+    textAlign: 'center'
   },
   addButtonText: {
-    color: constants.actionColor,
     fontFamily: constants.mediumFont,
     fontSize: 22,
+    color: constants.colorTeal,
     textAlign: 'center',
   },
   addButton: {
@@ -101,7 +104,8 @@ var styles = StyleSheet.create({
     borderWidth: 1,
     fontSize: 20,
     height: 40,
-    paddingLeft: 10
+    paddingLeft: 10,
+    width: 400
   },
   newinputlarge: {
     borderColor: constants.colorDarkGrey,
@@ -109,7 +113,10 @@ var styles = StyleSheet.create({
     fontSize: 20,
     height: 80,
     paddingLeft: 10,
-    shadowOffset: {width: 0, height: 0}
+    shadowOffset: {
+      width: 0,
+      height: 0
+    }
   },
   picker: {
     borderColor: constants.colorDarkGrey,
@@ -117,19 +124,20 @@ var styles = StyleSheet.create({
     fontSize: 20,
     height: 100,
     marginBottom: 20,
-    textAlign: 'center'
+    textAlign: 'center',
+    width: 400
   },
   heading: {
-    color: constants.actionColor,
-    fontFamily: constants.bodyFontFamily,
+    fontFamily: constants.heavyFont,
     fontSize: 22,
+    color: constants.colorTeal,
     marginBottom: 10
   },
   submit: {
-    backgroundColor: constants.actionColor,
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'center',
+    backgroundColor: constants.colorTeal,
     height: 45,
     width: 100
   }

@@ -3,6 +3,7 @@ import {
   AlertIOS,
   AsyncStorage,
   DatePickerIOS,
+  ListView,
   PickerIOS,
   StyleSheet,
   Text,
@@ -41,40 +42,6 @@ class AddWord extends Component {
     }
   }
 
-  initialiseData = () => {
-    console.log('startup');
-    AsyncStorage.getAllKeys()
-      .then((words) => {
-        keysLength += words.length
-        // use keys to get all the entries
-        return AsyncStorage.multiGet(words)
-      })
-      .then((allWords) => {
-        let ENTRIES = []
-
-        allWords.map((word) => {
-          ENTRIES.push(word[1])
-        })
-        return ENTRIES
-      })
-      .then((wordsArr) => {
-
-        let words = []
-        wordsArr.map((word) => {
-          words.push(JSON.parse(word))
-        })
-
-        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
-        this.setState({
-          data: ds.cloneWithRows(words),
-          isFetching: false
-        })
-      })
-      .catch((err) => {
-        throw err
-      })
-  }
-
   ConfirmDelete = (data) => {
     AlertIOS.alert(
       'TANGO',
@@ -83,7 +50,6 @@ class AddWord extends Component {
         {text: 'Kao', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
         {text: 'Ae', onPress: () => {
           deleteCard(data.maoriword)
-          initialiseData()
           this.props.navigator.popToTop()
         }},
       ],
