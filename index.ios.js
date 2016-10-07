@@ -9,7 +9,7 @@ import App from './components/App'
 
 import styles from './styles'
 
-class KupuHou extends Component {
+class KapataReo extends Component {
 
   render() {
     return (
@@ -27,4 +27,4 @@ class KupuHou extends Component {
   }
 }
 
-AppRegistry.registerComponent('KupuHou', () => KupuHou);
+AppRegistry.registerComponent('KapataReo', () => KupuHou);
