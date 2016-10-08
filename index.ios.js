@@ -1,9 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
+import thunkMiddleware from 'redux-thunk'
+import createLogger from 'redux-logger'
 import {
   AppRegistry,
   NavigatorIOS,
   View
-} from 'react-native';
+} from 'react-native'
 
 import App from './components/App'
 
@@ -23,8 +27,8 @@ class KapataReo extends Component {
           titleTextColor: '#fff',
         }}
       />
-    );
+    )
   }
 }
 
-AppRegistry.registerComponent('KapataReo', () => KupuHou);
+AppRegistry.registerComponent('KapataReo', () => KupuHou)
