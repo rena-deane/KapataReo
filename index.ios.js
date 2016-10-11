@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   AppRegistry,
   NavigatorIOS,
   View
-} from 'react-native';
+} from 'react-native'
 
 import App from './components/App'
 
 import styles from './styles'
 
-class KapataReo extends Component {
+class KupuHou extends Component {
 
   render() {
     return (
@@ -23,8 +23,8 @@ class KapataReo extends Component {
           titleTextColor: '#fff',
         }}
       />
-    );
+    )
   }
 }
 
-AppRegistry.registerComponent('KapataReo', () => KupuHou);
+AppRegistry.registerComponent('KupuHou', () => KupuHou)

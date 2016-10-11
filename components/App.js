@@ -156,7 +156,7 @@ class App extends Component {
          underlay={styles.actionColor}>
            <Text style={styles.addButtonText}>+ tapiri</Text>
         </TouchableHighlight>
-        
+
       </View>
     );
   }
