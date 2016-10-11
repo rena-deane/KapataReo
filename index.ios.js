@@ -1,8 +1,4 @@
 import React, { Component } from 'react'
-import { Provider } from 'react-redux'
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
-import thunkMiddleware from 'redux-thunk'
-import createLogger from 'redux-logger'
 import {
   AppRegistry,
   NavigatorIOS,
@@ -13,7 +9,7 @@ import App from './components/App'
 
 import styles from './styles'
 
-class KapataReo extends Component {
+class KupuHou extends Component {
 
   render() {
     return (
@@ -31,4 +27,4 @@ class KapataReo extends Component {
   }
 }
 
-AppRegistry.registerComponent('KapataReo', () => KupuHou)
+AppRegistry.registerComponent('KupuHou', () => KupuHou)

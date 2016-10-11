@@ -58,9 +58,20 @@ class AddWord extends Component {
   }
 
   submit = () => {
+    const key = this.state.maoriword
+    const value = JSON.stringify(this.state)
+    AsyncStorage.setItem(key, value)
+    .then(() => {
+      this.setState({canEdit: false})
+    })
+    .catch((err) => {
+      console.error(err)
+    })
     this.props.navigator.push({
       title: this.state.maoriword,
       component: ShowWord,
+      leftButtonTitle: 'katoa',
+      onLeftButtonPress: () => this.props.navigator.popToTop(),
       rightButtonTitle: 'tango',
       onRightButtonPress: () => this.ConfirmDelete(this.state),
       passprops: this.state,
